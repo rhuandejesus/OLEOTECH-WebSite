@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: bisque;
+    font-size: 15px;
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+}
+
+.img-logotipo {
+    width: 60%;
+    max-width: 360px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    
+}
+
+.menu-itens {
+
+    padding: 10px;
+    display: flex;
+    background-color: lightblue;
+    border-radius: 20px;
+    gap: 50px;
+    
+}
+
+.menu-itens li a {
+    text-decoration: none;
+    color: black;
+}
