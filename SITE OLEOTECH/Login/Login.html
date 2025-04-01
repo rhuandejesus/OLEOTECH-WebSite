@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Tela Login</title>
+    <link rel="stylesheet" href="formulario.css">
 </head>
 <body>
+    <main class="main">
 
-    
+        <form action="formulario.html" method="post" autocomplete="on">
+            <fieldset>
+                <legend>Login</legend>
+                <div class="div">
+                    <label for="email">E-mail:</label>
+                    <input class="dadospessoais" type="email" name="email" id="email" autocomplete="email" required>
+                </div>
 
+                <div>
+                    <label for="telefone">Senha </label>
+                    <input class="dadospessoais" type="password" name="Senha" id="Senha" autocomplete="Password" required>
+                </div>
+            </fieldset>
+            <br>
+            <a href="" rel="prev" target="_self"><input type="button" value="Enviar"></a>
+
+        </form>
+
+    </main>
     
 </body>
 </html>
