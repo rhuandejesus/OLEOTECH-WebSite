@@ -11,12 +11,16 @@ body {
 }
 
 .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
     background-color: #fff;
     padding: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 
@@ -56,7 +60,7 @@ body {
 }
 
 .nav-links a:hover {
-    Color:  #ddc1fa;
+    Color: #ddc1fa;
 }
 
 .login-button {
@@ -77,12 +81,12 @@ body {
     background: linear-gradient(to right, #68BFFE, #b888ec);
 }
 
-
+/*imagem principal*/
 .image-container {
     background-color: #1A62C5;
     border-radius: 15px;
     margin: auto;
-    padding: 10px;
+    padding: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,10 +98,13 @@ body {
 }
 
 .image-container img {
-    width: 65%;
+    padding: 3%;
+    width: 85%;
     display: block;
     object-fit: cover;
-    border-radius: 15px;
+    
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 30%, black 80%, transparent);
 }
 
 .section-sobre {
@@ -145,10 +152,10 @@ body {
 .about-image img {
     max-width: 250px;
     border-radius: 15px;
-    box-shadow:  0px 15px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
 }
 
-.linha-amarela{
+.linha-amarela {
     background-color: #FFD242;
     border-radius: 20px;
     width: 95%;
@@ -162,10 +169,10 @@ body {
     align-items: center;
     background-color: #3974C2;
     border-radius: 20px;
-    max-width: 1200px; 
+    max-width: 1200px;
     width: 90%;
     margin: 50px auto;
-    padding: 40px; 
+    padding: 40px;
 }
 
 
@@ -175,31 +182,58 @@ body {
     justify-content: space-between;
     align-items: center;
     color: #fff;
-    padding: 40px; 
-    max-width: 1000px; 
+    padding: 40px;
+    max-width: 1000px;
     border-radius: 20px;
     box-shadow: 7px 5px 6px rgba(0, 0, 0, 0.1);
 }
 
 
 iframe {
-    width: 100%; 
-    height: auto; 
-    aspect-ratio: 16 / 9; 
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
 }
 
 .video {
-    width: 50%; 
+    width: 50%;
     height: auto;
     aspect-ratio: 16 / 9;
     border-radius: 15px;
-    margin-left: 20px; 
+    margin-left: 20px;
     box-shadow: 7px 5px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*reciclagem de oleo*/
+
+.section-reciclagem {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    background: linear-gradient(120deg, #FFD242, #0068F1);
+    height: 30%;
+    align-items: center;
+}
+
+.texto-reciclagem {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.licenças-texto {
+    background-color: green;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    max-width: 200px;
+    text-align: center;
 }
 
 /* Footer Banner */
 .footer-banner {
-    background-color: #FFA500; 
+    margin-top: 20%;
+    background-color: #FFA500;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -231,18 +265,16 @@ iframe {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
     font-weight: bold;
     font-size: 16px;
-    text-decoration: none; 
-    transition: transform 0.3s ease; 
-    /* background:linear-gradient(to top, #2c9ced, #086BEC);  */
-    /* color: #fff; */
+    text-decoration: none;
+    transition: transform 0.3s ease;
 }
 
 
 .botao-playstore a:hover {
-    transform: scale(1.05); 
-    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3); 
-     background:linear-gradient(to top, #2c9ced, #086BEC);
-     color: #fff; 
+    transform: scale(1.05);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to top, #2c9ced, #086BEC);
+    color: #fff;
 }
 
 
@@ -285,7 +317,8 @@ iframe {
     color: #333;
 }
 
-.footer-contact p, .footer-social p {
+.footer-contact p,
+.footer-social p {
     font-size: 14px;
     color: #333;
 }
@@ -303,4 +336,3 @@ iframe {
 .footer-social .social-icons img:hover {
     transform: scale(1.1);
 }
-
