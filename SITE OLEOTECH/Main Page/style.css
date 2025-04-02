@@ -221,15 +221,34 @@ iframe {
     width: 100px;
 }
 
-.playstore-button img {
-    width: 120px; /* Ajuste para um tamanho menor */
-    height: auto;
-    display: block;
-    margin: auto;
-    padding: 10px;
-    background-color: white; /* Garante contraste */
+
+.botao-playstore a {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none; 
+    transition: transform 0.3s ease; 
+    /* background:linear-gradient(to top, #2c9ced, #086BEC);  */
+    /* color: #fff; */
+}
+
+
+.botao-playstore a:hover {
+    transform: scale(1.05); 
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3); 
+     background:linear-gradient(to top, #2c9ced, #086BEC);
+     color: #fff; 
+}
+
+
+.botao-playstore img {
+    width: 30px;
+    margin-right: 10px;
 }
 
 
@@ -257,7 +276,8 @@ iframe {
 }
 
 .footer-logo img {
-    width: 80px;
+    width: 250px;
+    height: 150px;
 }
 
 .footer-logo p {
