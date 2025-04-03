@@ -16,7 +16,7 @@ body {
     width: 100%;
     background-color: #fff;
     padding: 30px;
-    height: 85px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,7 +26,7 @@ body {
 
 
 .logo {
-    height: 150px;
+    height: 100px;
     padding-left: 350px;
 }
 
@@ -114,6 +114,7 @@ body {
     margin: 50px auto;
     padding: 40px;
     max-width: 1200px;
+    margin-bottom: 100px;
 }
 
 .conteudo-sobre {
@@ -173,6 +174,7 @@ body {
     width: 90%;
     margin: 50px auto;
     padding: 40px;
+    margin-bottom: 200px;
 }
 
 
@@ -207,38 +209,126 @@ iframe {
 /*reciclagem de oleo*/
 
 .section-reciclagem {
-    margin-top: 20px;
     display: flex;
     justify-content: center;
-    padding: 50px;
-    background: linear-gradient(120deg, #FFD242, #0068F1);
-    height: 30%;
+    background: linear-gradient(to right, green, blue);
+    margin: 10px;
+    padding: 40px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.reciclagem-container {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+.imagem-oleo img {
+    width: 500px;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+}
+
+.texto-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    color: black;
+    flex-direction: column;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    padding: 20px;
+    width: 100%
+}
+
+.titulo-reciclagem {
+    color: black;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.licencas-texto {
+    max-width: 95%;
+    align-items: center;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/*icon de reciclagem*/
+.section-icon {
+    background-color: lightgray;
+    height: 300px;
+    width: 100%;
+    text-align: center;
+}
+
+.icon-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.texto-reciclagem {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+/*linha verde*/
+.linha-verde {
+    background-color: green;
+    border-radius: 20px;
+    width: 100%;
+    margin: auto;
+    padding: 4px;
 }
 
+/*localização*/
+.section-local {
+    background-color: lightgray;
+    height: 800px;
+    width: 100%;
+}
 
-.licenças-texto {
-    background-color: green;
-    padding: 10px;
-    color: white;
-    font-weight: bold;
-    max-width: 200px;
-    text-align: center;
+.local {
+    width: 44.8px;
+    height: 44.8px;
+    position: relative;
+    transform: rotate(45deg);
+}
+
+.local:before,
+.local:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50% 50% 0 50%;
+    background: #0000;
+    background-image: radial-gradient(circle 11.2px at 50% 50%, #0000 94%, #ff4747);
+}
+
+.local:after {
+    animation: pulse-ytk0dhmd 1s infinite;
+    transform: perspective(336px) translateZ(0px);
+}
+
+@keyframes pulse-ytk0dhmd {
+    to {
+        transform: perspective(336px) translateZ(168px);
+        opacity: 0;
+    }
 }
 
 /* Footer Banner */
 .footer-banner {
-    margin-top: 20%;
+    margin-top: 30%;
     background-color: #FFA500;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
 }
+
 
 .banner-content {
     display: flex;
