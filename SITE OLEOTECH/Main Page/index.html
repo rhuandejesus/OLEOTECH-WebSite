@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
     <title>OLEOTECH</title>
 </head>
 
@@ -28,8 +28,29 @@
     </header>
 
 
-    <div class="image-container">
-        <img src="../img/Cara negro oficial.png" alt="Coleta de Oleo">
+    <section class="slider">
+        <div class="slides">
+            <input type="radio" name="radio-btn" id="radio 1">
+            <input type="radio" name="radio-btn" id="radio 2">
+        </div>
+    </section>
+
+    <div class="slide first">
+        <img src="../img/Cara negro oficial.png" class="oleo" alt="imagem 1">
+    </div>
+
+    <div class="slide">
+        <img src="../img/oleo-imagem.png" class="oleo" alt="imagem 2">
+    </div>
+
+    <div class="navigation-auto">
+        <div class="auto-btn1"></div>
+        <div class="auto-btn2"></div>
+    </div>
+
+    <div class="manual-navigation">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
     </div>
 
     <div class="flex-container">
@@ -122,11 +143,30 @@
 
     <div class="linha-verde"></div>
 
+    <!--Localização do mapa-->
     <section class="section-local">
         <div class="local"></div>
 
-        <div>
-            <img class="mapa" src="../img/map.png" alt="mapa">
+        <div class="text-local">
+            <h1 class="title-local">Unidades de armazenamento Oleo Tech</h1>
+        </div>
+
+        <div class="unidades-container">
+
+            <div class="unidades">
+                <li>Santos</li>
+                <li>Cubatão</li>
+                <li>Guaruja</li>
+                <li>Mongaguá</li>
+                <li>Praia Grande</li>
+                <li>São Vicente</li>
+                <li>Itanhaém</li>
+    
+                <div maopa-container>
+                    <img class="mapa" src="../img/map.png" alt="mapa">
+                </div>
+            </div>
+
         </div>
     </section>
 

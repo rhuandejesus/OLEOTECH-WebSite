@@ -71,7 +71,7 @@ body {
 }
 
 .nav-links a:hover {
-    Color: #ddc1fa;
+    color: #ddc1fa;
 }
 
 .login-button {
@@ -95,11 +95,76 @@ body {
 
 /*imagem principal*/
 
-.image-container img {
-    padding: 0%;
+.slider {
+    margin: 0 auto;
     width: 100%;
-    display: block;
+    max-width: 800px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+
+}
+
+.slides {
+    width: 200%;
+    height: 100%;
+    display: flex;
+    transition: margin-left 1s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+
+.manual-navigation,
+.navigation-auto {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 1;
+}
+
+.manual-btn,
+.navigation-auto div {
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.manual-btn:hover,
+.navigation-auto div:hover {
+    background-color: white;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+#radio1:checked ~ .slides {
+    margin-left: 0%;
+}
+
+#radio2:checked ~ .slides {
+    margin-left: -100%;
 }
 
 .section-sobre {
@@ -223,7 +288,7 @@ iframe {
 }
 
 .imagem-oleo img {
-    width: 500px;
+    max-width: 100%;
     height: auto;
     display: block;
     border-radius: 20px;
@@ -261,14 +326,18 @@ iframe {
     background-color: lightgray;
     height: 300px;
     width: 100%;
-    text-align: center;
+    display: flex;
 }
 
 .icon-container {
-    height: 100%;
+    padding:60px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 50%;
+}
+
+.icon-container img{
+    height: auto;
 }
 
 /*linha verde*/
@@ -282,21 +351,67 @@ iframe {
 
 /*localização*/
 .section-local {
-    background-color: lightgray;
-    height: 800px;
+    background-color: #f0f0f0;
     width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.text-local{
+    background-color: #0597FF;
+    padding: 10px;
+    border-radius: 30px;
+    margin-bottom: 5%;
+    margin-top: 10px;
+}
+
+.title-local{
+    color: lightgrey;
 }
 
 .local {
     text-align: center;
     width: 44.8px;
     height: 44.8px;
-    position: relative;
+    position: absolute;
     transform: rotate(45deg);
+    z-index: 10;
 }
 
-.mapa{
-    
+.unidades-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.unidades {
+    flex-direction: column;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.mapa-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapa {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
 }
 
 .local:before,
@@ -312,6 +427,21 @@ iframe {
 .local:after {
     animation: pulse-ytk0dhmd 1s infinite;
     transform: perspective(336px) translateZ(0px);
+}
+
+.section-local .mapa-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.section-local .mapa-container .local {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
 @keyframes pulse-ytk0dhmd {

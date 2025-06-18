@@ -1,16 +1,53 @@
-function clickOleo() {
-    if (itens.style.display == "block") {
-        itens.style.display = "none"
+class MobileNavbar {
+    constructor(mobileMenu, nav, navLinks) {
+      this.mobileMenu = document.querySelector(mobileMenu);
+      this.nav = document.querySelector(nav);
+      this.navLinks = document.querySelectorAll(navLinks);
+      this.activeClass = "active";
+  
+      this.handleClick = this.handleClick.bind(this);
     }
-    else {
-        itens.style.display = "block"
+  
+    animateLinks() {
+      this.navLinks.forEach((link, index) => {
+        link.style.animation
+          ? (link.style.animation = "")
+          : (link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`);
+      });
     }
-}
-function mudouTamanho() {
-    if (window.innerWidth >= 768) {
-        itens.style.display = "block"
+  
+    handleClick() {
+      this.nav.classList.toggle(this.activeClass);
+      this.animateLinks();
     }
-    else {
-        itens.style.display = "none"
+  
+    addClickEvent() {
+      this.mobileMenu.addEventListener("click", this.handleClick);
     }
-}
+  
+    init() {
+      if (this.mobileMenu) {
+        this.addClickEvent();
+      }
+      return this;
+    }
+  }
+  
+  const mobileNavbar = new MobileNavbar(
+    ".mobile-menu",
+    ".nav",
+    ".nav-links li"
+  );
+  mobileNavbar.init();
+  
+  // Slider automático
+  let count = 1;
+  document.getElementById("radio1").checked = true;
+  
+  setInterval(function () {
+    count++;
+    if (count > 2) {
+      count = 1;
+    }
+    document.getElementById("radio" + count).checked = true;
+  }, 5000);
