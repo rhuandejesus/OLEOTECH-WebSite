@@ -40,14 +40,15 @@ class MobileNavbar {
   );
   mobileNavbar.init();
   
-  // Slider automático
-  let count = 1;
-  document.getElementById("radio1").checked = true;
-  
-  setInterval(function () {
+ let count = 1;
+ document.getElementById("radio1").checked = true;
+  setInterval(function() {
+  }, 5000);
+
+  function nextImage() {
     count++;
     if (count > 2) {
       count = 1;
     }
     document.getElementById("radio" + count).checked = true;
-  }, 5000);
+  }
