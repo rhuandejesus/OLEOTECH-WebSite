@@ -89,31 +89,28 @@ body {
 }
 
 .login-button {
-    background: linear-gradient(to right, #68BFFE, #086BEC); 
+    background: linear-gradient(to right, #68BFFE, #086BEC); /* Seu gradiente azul */
     color: #fff;
     font-weight: 500;
     border: none;
     border-radius: 8px;
-    padding: 12px 15px;
+    padding: 12px 20px;
     font-size: 1em;
     cursor: pointer;
-    display: block; 
-    margin: 0 auto; 
-    text-align: center;
-    text-decoration: none;
-    width: calc(100% - 40px);
+    width: 100%;
+ 
 }
 
 .login-button:hover {
-    background: linear-gradient(to right, #ddcbf0, #72afff); /* Ligeira variação no hover */
+    background: linear-gradient(to right, #b888ec, #086BEC); /* Ligeira variação no hover */
 }
 
 .links-area {
     margin-top: 20px;
     width: 100%;
-    font-size: 0.9em; 
-    color: #777; 
-    text-align: center; 
+    font-size: 0.9em;
+    color: #777;
+    text-align: center;
 }
 
 .links-area a {
