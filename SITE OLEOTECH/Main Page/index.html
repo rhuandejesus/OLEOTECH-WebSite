@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>OLEOTECH</title>
 </head>
 
@@ -13,7 +13,7 @@
 <body onresize="mudouTamanho">
     <header class="header">
         <div class="logo-container" id="oleo" onclick="clickOleo()">
-            <img class="logo" src="../img/LOGO TIPO OLEO.png" alt="logo do oleo"></img>
+            <img class="logo" src="../img/gota (1).png" alt="logo do oleo"></img>
         </div>
         <nav class="nav">
             <ul class="nav-links">
@@ -28,8 +28,7 @@
     </header>
 
 
-    <section class="slider">
-
+    <section class="slider" data-interval="4500"> <!-- 4500ms = 4.5s por slide -->
         <div class="slides">
             <input type="radio" name="radio-btn" id="radio1">
             <input type="radio" name="radio-btn" id="radio2">
@@ -51,7 +50,7 @@
             </div>
 
             <div class="slide">
-                <img src="../img/coleta-oleo-usado (1).jpg" class="oleo" alt="Imagem4">
+                <img src="https://www.estadao.com.br/resizer/v2/LSRJRV2TOVH5RBBH3NL6WGPDWY.jpeg?quality=80&auth=b71dd4f5d7bc3626cf418e897b9fb289032197b6c6f1f449a3e497c276b0b0d2&width=1075&height=527&smart=true" class="oleo" alt="Imagem4">
             </div>
 
             <div class="navigation-auto">
@@ -68,7 +67,6 @@
             <label for="radio3" class="manual-btn"></label>
             <label for="radio4" class="manual-btn"></label>
         </div>
-
     </section>
 
     <div class="flex-container">
@@ -93,7 +91,6 @@
         </section>
     </div>
 
-    <div class="linha-amarela"></div>
 
     <div class="flex-container">
         <section class="section-mais">
@@ -159,7 +156,7 @@
         </div>
     </section>
 
-    <div class="linha-verde"></div>
+    <div class="linha-azul"></div>
 
     <!--Localização do mapa-->
     <section class="section-local">
@@ -284,6 +281,77 @@
                 </div>
             </div>
 
+            <div class="card">
+                <img src="../img/oleo_curiosidade6.jpg" alt="">
+                <div class="card-content">
+                    <h3>Óleo de abacate</h3>
+                    <p>
+                        O óleo de abacate, extraído da polpa do abacate, é valorizado por seu sabor suave e benefícios
+                        à saúde. Rico em gorduras monoinsaturadas, especialmente ácido oleico, é benéfico para o coração
+                        e pode ajudar a reduzir o colesterol LDL (ruim). Contém antioxidantes como vitamina E e luteína,
+                        que protegem as células contra danos oxidativos. Seu ponto de fumaça alto o torna ideal para
+                        frituras e cozimento em alta temperatura. Também é usado em cosméticos por suas propriedades
+                        hidratantes.
+                    </p>
+                    <a href="" class="btn-read">Read More</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../img/oleo_curiosidade7.jpg" alt="">
+                <div class="card-content">
+                    <h3>Óleo de gergelim</h3>
+                    <p>
+                        O óleo de gergelim, extraído das sementes de gergelim, é amplamente utilizado na culinária
+                        asiática
+                        por seu sabor distinto e aroma característico. Rico em ácidos graxos poli-insaturados,
+                        especialmente
+                        ácido linoleico (ômega-6), contém antioxidantes como sesamina e sesamolina, que podem ajudar a
+                        reduzir a pressão arterial e melhorar a saúde cardiovascular. Seu ponto de fumaça relativamente
+                        baixo o torna mais adequado para temperar saladas e pratos frios, mas também pode ser usado em
+                        cozimento em baixa temperatura.
+                    </p>
+                    <a href="" class="btn-read">Read More</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../img/oleo_curiosidade8.jpg" alt="">
+                <div class="card-content">
+                    <h3>Óleo de amendoim</h3>
+                    <p>
+                        O óleo de amendoim, extraído das sementes de amendoim, é amplamente utilizado na culinária por
+                        seu
+                        sabor suave e ponto de fumaça alto, tornando-o ideal para frituras. Rico em ácidos graxos
+                        monoinsaturados e poli-insaturados, especialmente ácido oleico e ácido linoleico, pode ajudar a
+                        melhorar os níveis de colesterol HDL (bom colesterol). Contém antioxidantes como vitamina E,
+                        que protegem as células contra danos oxidativos. Também é usado em molhos e temperos devido ao
+                        seu sabor agradável.
+                    </p>
+                    <a href="" class="btn-read">Read More</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../img/oleo_curiosidade9.jpg" alt="">
+                <div class="card-content">
+                    <h3>Óleo de azeite</h3>
+                    <p>
+                        O óleo de azeite, extraído das azeitonas, é amplamente utilizado na culinária mediterrânea e
+                        valorizado por seus benefícios à saúde. Rico em gorduras monoinsaturadas, especialmente ácido
+                        oleico, pode ajudar a reduzir o colesterol LDL (ruim) e melhorar a saúde cardiovascular. Contém
+                        antioxidantes como polifenóis e vitamina E, que protegem as células contra danos oxidativos. Seu
+                        sabor varia de suave a intenso, dependendo do tipo de azeitona e do processo de extração.
+                        Adequado para temperar saladas, molhos e cozimento em baixa temperatura.
+                    </p>
+                    <a href="" class="btn-read">Read More</a>
+                </div>
+            </div>
+
+
+
+
+
         </div>
 
 
@@ -296,7 +364,6 @@
     <footer>
         <div class="footer-banner">
             <div class="banner-content">
-                <img src="../img/Play Store Girl.png" alt="Personagem" class="banner-img">
                 <p>Adquira também nosso aplicativo na loja </p>
                 <div class="botao-playstore">
                     <a href="https://play.google.com/store" target="_blank">
@@ -314,7 +381,7 @@
 
         <div class="footer-inferior">
             <div class="footer-logo">
-                <img src="../img/logo oleotech.png" alt="OLEOTECH">
+                <img src="../img/gota (1).png" alt="OLEOTECH">
                 <p>© Política de Privacidade</p>
             </div>
             <div class="footer-contact">
