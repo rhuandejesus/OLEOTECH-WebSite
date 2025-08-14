@@ -74,3 +74,21 @@
 function mudouTamanho() {
   // Se precisar, coloque lógica responsiva aqui.
 }
+
+
+// Seleciona todos os botões Read More
+const readMoreBtns = document.querySelectorAll('.btn-read');
+
+readMoreBtns.forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    const cardContent = this.parentElement;
+    cardContent.classList.toggle('expanded');
+
+    if (cardContent.classList.contains('expanded')) {
+      this.textContent = "Voltar";
+    } else {
+      this.textContent = "Ler Mais";
+    }
+  });
+});
