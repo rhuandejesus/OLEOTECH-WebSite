@@ -92,3 +92,18 @@ readMoreBtns.forEach(btn => {
     }
   });
 });
+
+
+// Seleciona o botão de login
+const loginButton = document.querySelector('.login-button');
+const loadingScreen = document.getElementById('loading-screen');
+
+loginButton.addEventListener('click', function(e) {
+    e.preventDefault(); // Impede o redirecionamento imediato
+    loadingScreen.style.display = 'flex'; // Mostra o loading
+
+    // Aguarda 2 segundos antes de ir para a página de login
+    setTimeout(() => {
+        window.location.href = loginButton.href;
+    }, 1000); // 1000ms = 1s
+});

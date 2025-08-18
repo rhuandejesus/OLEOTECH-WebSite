@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,26 +11,26 @@
     <div class="login-container">
         <div class="login-form">
             <div class="logo-area">
-                <a href="../Main Page/index.html">Home</a>
                 <!-- <img class="login-logo" src="../img/LOGOTIPO_OLEO_-removebg-preview.png" alt="Logo OLEOTECH"> -->
                 <h2>Entrar</h2>
                 <p class="sign-in-text">Você precisa fornecer seus dados de acesso abaixo para entrar no sistema.</p>
             </div>
-            <form action="#" method="POST">
+            
+            <form action="valida_login.php" method="POST">
                 <div class="input-group">
                     <img class="input-icon" src="../img/profile.png" alt="Ícone de Usuário">
-                    <input type="text" id="username" name="username" placeholder="Nome de Usuário">
+                    <input type="text" id="username" name="username" placeholder="Nome de Usuário ou Email" required>
                 </div>
                 <div class="input-group">
                     <img class="input-icon lock-icon" src="../img/padlock.png" alt="Ícone de Cadeado">
-                    <input type="password" id="password" name="password" placeholder="Senha">
+                    <input type="password" id="password" name="password" placeholder="Senha" required>
                 </div>
-                <a href="Main Page/index.html" target="_self"><button type="submit" class="login-button">Entrar</button></a>
+                <button type="submit" class="login-button">Entrar</button>
             </form>
+
             <div class="links-area">
-                <a href="cadastro.php">Esqueceu sua senha?</a>
-                <br>
-                <a href="../Login/cadastro.php">Criar uma conta</a>
+                <a href="../Main Page/index.html">Esqueceu sua senha?</a>
+                <a href="../Login/cadastro.php">Cadastrar</a>
             </div>
             <p class="copyright">© OLEOTECH</p>
         </div>
