@@ -1,7 +1,7 @@
 /* login_style.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+ 
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -11,7 +11,7 @@ body {
     align-items: center;
     min-height: 100vh;
 }
-
+ 
 .login-container {
     background-color: #fff;
     border-radius: 10px;
@@ -21,7 +21,7 @@ body {
     max-width: 960px;
     overflow: hidden;
 }
-
+ 
 .login-form {
     padding: 40px;
     width: 50%;
@@ -30,7 +30,7 @@ body {
     align-items: flex-start;
     justify-content: center;
 }
-
+ 
 .logo-area {
     margin-bottom: 30px;
     width: 100%;
@@ -42,20 +42,20 @@ body {
     margin-bottom: 5px;
     margin-right: 70px;
 }
-
+ 
 .login-form h2 {
     color: #1A62C5; /* Cor primária azul do seu tema */
     margin-bottom: 5px;
     font-size: 2em;
     font-weight: 600;
 }
-
+ 
 .sign-in-text {
     color: #777;
     margin-bottom: 30px;
     font-size: 0.9em;
 }
-
+ 
 .input-group {
     margin-bottom: 20px;
     width: 100%;
@@ -66,7 +66,24 @@ body {
     border: 1px solid #ccc;
     overflow: hidden;
 }
-
+ 
+#perfil{
+   
+     margin-bottom: 20px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+ 
+    padding: 10px;
+ 
+    /* font-family: "Playfair Display", serif; */
+ 
+}
+ 
 .input-icon {
     padding: 10px;
     height: 20px;
@@ -74,12 +91,12 @@ body {
     opacity: 0.7;
     margin-right: 10px;
 }
-
+ 
 .lock-icon {
     width: 18px;
     height: 18px;
 }
-
+ 
 .input-group input {
     width: calc(100% - 40px);
     padding: 12px 15px;
@@ -87,7 +104,7 @@ body {
     font-size: 1em;
     outline: none;
 }
-
+ 
 .login-button {
     background: linear-gradient(to right, #68BFFE, #086BEC); /* Seu gradiente azul */
     color: #fff;
@@ -100,11 +117,11 @@ body {
     width: 100%;
  
 }
-
+ 
 .login-button:hover {
     background: linear-gradient(to right, #b888ec, #086BEC); /* Ligeira variação no hover */
 }
-
+ 
 .links-area {
     margin-top: 20px;
     width: 100%;
@@ -112,17 +129,17 @@ body {
     color: #777;
     text-align: center;
 }
-
+ 
 .links-area a {
     color: #0597FF; /* Cor secundária azul para links */
     text-decoration: none;
     transition: color 0.3s ease;
 }
-
+ 
 .links-area a:hover {
     color: #1A62C5; /* Cor primária azul para hover nos links */
 }
-
+ 
 .copyright {
     margin-top: 30px;
     font-size: 0.8em;
@@ -130,7 +147,7 @@ body {
     text-align: center;
     width: 100%;
 }
-
+ 
 .login-illustration {
     width: 50%;
     background: linear-gradient(135deg, #fdf4b1, #57caff); /* Um fundo sutilmente degradê */
@@ -141,58 +158,58 @@ body {
     color: #333;
     text-align: left;
 }
-
+ 
 .illustration-content {
     max-width: 80%;
 }
-
+ 
 .illustration-content h2 {
     font-size: 2.5em;
     font-weight: bold;
     color: #1A62C5;
     margin-bottom: 10px;
 }
-
+ 
 .illustration-content p {
     font-size: 1em;
     color: #555;
     margin-bottom: 30px;
 }
-
+ 
 .abstract-art {
     display: flex;
     gap: 20px;
     align-items: center;
 }
-
+ 
 .circle {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
-
+ 
 .circle-blue-light {
     background-color: #68BFFE;
 }
-
+ 
 .circle-yellow {
     background-color: #FFD242;
 }
-
+ 
 .rectangle {
     width: 80px;
     height: 40px;
     background-color: #086BEC;
     border-radius: 5px;
 }
-
+ 
 /* Estilos para telas menores (responsividade) */
 @media (max-width: 768px) {
     .login-container {
         flex-direction: column;
         width: 95%;
     }
-
+ 
     .login-form,
     .login-illustration {
         width: 100%;
@@ -201,23 +218,23 @@ body {
         text-align: center;
         justify-content: center;
     }
-
+ 
     .login-form {
         align-items: center;
     }
-
+ 
     .login-form .logo-area {
         text-align: center;
     }
-
+ 
     .login-form .input-group {
         flex-direction: row;
     }
-
+ 
     .login-illustration {
         background: #E0F7FA; /* Cor sólida em telas menores */
     }
-
+ 
     .abstract-art {
         justify-content: center;
     }
