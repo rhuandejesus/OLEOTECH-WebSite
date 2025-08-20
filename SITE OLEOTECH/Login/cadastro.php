@@ -142,8 +142,9 @@
 
                 <select name="perfil" id="perfil">
                     <option class="option" value="0">Selecione o Tipo</option>
-                    <option class="option" value="Fornecedor">Fornecedor</option>
+                    <option class="option" value="Usuario">Usuario (Para Descarte)</option>
                     <option class="option" value="Coletor">Coletor</option>
+                    <option class="option" value="Empresa">Empresa</option>
                 </select>
 
                 <?php //VALIDA SE O USUÁRIO JÁ NÃO ESTAVA CADASTRADO

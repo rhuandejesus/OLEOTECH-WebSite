@@ -100,7 +100,7 @@ body {
 .nav {
     display: flex;
     align-items: center;
-    background-color: #EFC91D;
+    background-color: #1B63C5;
     border-radius: 30px;
     padding: 10px 14px;
     margin-left: 20px;
@@ -127,7 +127,8 @@ body {
 }
 
 .nav-links a:hover {
-    color: #ddc1fa;
+    color: #EFC91D;
+    transform: translateY(-1px);
 }
 
 .login-button {
@@ -147,6 +148,20 @@ body {
 .login-button:hover {
     background: linear-gradient(to right, #68BFFE, #b888ec);
     transform: scale(1.1);
+}
+
+/* leve aumento do espaçamento ao passar o mouse */
+.login-button:hover {
+    background: #EFC91D;
+    letter-spacing: 2px;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #EFC91D, 0 0 30px #EFC91D;
+}
+
+
+
+.card-content .btn-read:hover::before {
+    transform: skewX(45deg) translateX(200%);
 }
 
 /*imagem principal*/

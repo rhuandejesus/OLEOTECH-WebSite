@@ -98,12 +98,24 @@ readMoreBtns.forEach(btn => {
 const loginButton = document.querySelector('.login-button');
 const loadingScreen = document.getElementById('loading-screen');
 
-loginButton.addEventListener('click', function(e) {
-    e.preventDefault(); // Impede o redirecionamento imediato
-    loadingScreen.style.display = 'flex'; // Mostra o loading
+if (loginButton) {
+  loginButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    loadingScreen.style.display = 'flex';
 
-    // Aguarda 2 segundos antes de ir para a página de login
+    // Marca que veio do botão
+    sessionStorage.setItem("redirecting", "true");
+
     setTimeout(() => {
-        window.location.href = loginButton.href;
-    }, 1000); // 1000ms = 1s
+      window.location.href = loginButton.href;
+    }, 1000);
+  });
+}
+
+// Quando a página carregar, remove a flag e esconde o loading
+window.addEventListener("pageshow", () => {
+  if (sessionStorage.getItem("redirecting") === "true") {
+    sessionStorage.removeItem("redirecting");
+    document.getElementById("loading-screen").style.display = "none";
+  }
 });
