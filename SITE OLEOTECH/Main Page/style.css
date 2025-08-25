@@ -8,6 +8,7 @@
 html,
 body {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -42,7 +43,7 @@ body {
 }
 
 /*Loading*/
-#loading-screen {
+/* #loading-screen {
     position: fixed;
     top: 0;
     left: 0;
@@ -80,7 +81,7 @@ body {
 #loading-screen p {
     font-family: Arial, sans-serif;
     font-size: 1.2rem;
-}
+} */
 
 
 .logo {
@@ -848,9 +849,219 @@ a {
     z-index: 20;
 }
 
+
+/*Parte de entrar na conta*/
+
+.section-local-entrar {
+    background-color: #f0f0f0;
+    width: 100%;
+    min-height: 100vh;
+    /* ocupa a tela inteira */
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* centraliza na vertical */
+    align-items: center;
+    /* centraliza na horizontal */
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    gap: 40px;
+    margin-top: 20%;
+}
+
+.local-entrar {
+    background-color: #f0f0f0;
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    gap: 70px;
+}
+
+.local-entrar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    /* remove espaçamento exagerado */
+    padding: 20px;
+    text-align: center;
+}
+
+.local-entrar-container h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #000A38;
+}
+
+/* Form moderno */
+.form-container {
+    width: 350px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #000A38;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 15px;
+}
+
+.input {
+    border-radius: 10px;
+    border: 1px solid #c0c0c0;
+    padding: 12px 15px;
+    font-size: 14px;
+}
+
+.page-link {
+    text-align: end;
+    color: #747474;
+    font-size: 12px;
+}
+
+.page-link-label {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.page-link-label:hover {
+    color: #000;
+}
+
+.form-btn {
+    padding: 12px;
+    border-radius: 10px;
+    border: 0;
+    background: #1B63C5;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.form-btn:hover {
+    background: #0E4A8D;
+    transform: scale(1.05);
+}
+
+.sign-up-label {
+    text-align: center;
+    font-size: 12px;
+    color: #747474;
+}
+
+.sign-up-link {
+    margin-left: 5px;
+    text-decoration: underline;
+    color: teal;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Botões sociais */
+.buttons-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.apple-login-button,
+.google-login-button {
+    border-radius: 10px;
+    padding: 10px 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px,
+        rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.apple-login-button {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000;
+}
+
+.google-login-button {
+    border: 2px solid #747474;
+}
+
+/* Opções de cadastro (aparecem quando clicar em "Cadastre-se") */
+.cadastro-opcoes {
+    display: none;
+    /* escondido por padrão */
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.cadastro-opcoes a {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Botão Usuário */
+.cadastro-opcoes .btn-cadastrar-user {
+    background-color: #1B63C5;
+    color: #fff;
+}
+
+.cadastro-opcoes .btn-cadastrar-user:hover {
+    background-color: #0E4A8D;
+}
+
+/* Botão Empresa */
+.cadastro-opcoes .btn-cadastrar-empresa {
+    background-color: #EFC91D;
+    color: #000;
+}
+
+.cadastro-opcoes .btn-cadastrar-empresa:hover {
+    background-color: #d4ad12;
+}
+
+
+/* Animação */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
 /* Footer Banner */
 .footer-banner {
-    margin-top: 10%;
+    margin-top: 40%;
     background-color: #EFC91D;
     display: flex;
     justify-content: space-between;
@@ -1336,6 +1547,8 @@ a {
             width: 100%;
         }
 
+
+
     }
 }
 
@@ -1431,6 +1644,18 @@ a {
         /* centraliza horizontalmente */
         gap: 20px;
         /* espaço entre lista e mapa */
+    }
+
+    @media (max-width: 768px) {
+        .form-container {
+            width: 100%;
+            max-width: 90%;
+        }
+
+        .botao-cadastrar {
+            flex-direction: column;
+            gap: 15px;
+        }
     }
 }
 
