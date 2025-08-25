@@ -112,10 +112,44 @@ if (loginButton) {
   });
 }
 
-// Quando a página carregar, remove a flag e esconde o loading
-window.addEventListener("pageshow", () => {
-  if (sessionStorage.getItem("redirecting") === "true") {
-    sessionStorage.removeItem("redirecting");
-    document.getElementById("loading-screen").style.display = "none";
+// // Quando a página carregar, remove a flag e esconde o loading
+// window.addEventListener("pageshow", () => {
+//   if (sessionStorage.getItem("redirecting") === "true") {
+//     sessionStorage.removeItem("redirecting");
+//     document.getElementById("loading-screen").style.display = "none";
+//   }
+// });
+
+
+// script.js (adicionar ao seu arquivo existente)
+document.addEventListener('DOMContentLoaded', () => {
+  const loginBtn = document.querySelector('.login-button');
+  const target = document.getElementById('local-entrar');
+  const header = document.querySelector('.header'); // ajuste se o seletor do header for outro
+
+  if (loginBtn && target) {
+    loginBtn.addEventListener('click', function(e) {
+      // Caso esteja usando href="#local-entrar" no link,.preventDefault para controlar o scroll com offset
+      e.preventDefault();
+
+      // calcula offset do header se ele for fixo
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10; // -10 px de folga
+
+      window.scrollTo({
+        top,
+        behavior: 'smooth'
+      });
+    });
   }
+});
+
+
+// opções de cadastro
+const toggleCadastro = document.getElementById("toggleCadastro");
+const cadastroOpcoes = document.getElementById("cadastroOpcoes");
+
+toggleCadastro.addEventListener("click", () => {
+    cadastroOpcoes.style.display =
+        cadastroOpcoes.style.display === "flex" ? "none" : "flex";
 });
