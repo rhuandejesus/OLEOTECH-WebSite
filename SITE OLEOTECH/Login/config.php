@@ -2,7 +2,7 @@
 define('HOST','localhost');
 define('USER','root');
 define('PASS','');
-define('BASE','Cadastro_Oleotech');
+define('BASE','OLEOTECH');
  
 //criar a string de conexão
 $conexao = new mysqli (HOST,USER,PASS,BASE);

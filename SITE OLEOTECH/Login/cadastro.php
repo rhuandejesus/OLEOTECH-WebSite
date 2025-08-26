@@ -125,12 +125,22 @@
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/mail.png" alt="Ícone de Usuário">
-                    <input type="text" id="username" name="username" placeholder="Email" required>
+                    <input type="text" id="email" name="email" placeholder="Email" required>
                 </div>
 
                 <div class="input-group">
                     <img class="input-icon lock-icon" src="../img/imagens_login/padlock.png" alt="Ícone de Cadeado" required>
-                    <input type="password" id="password" name="password" placeholder="Senha">
+                    <input type="password" id="senha" name="senha" placeholder="Senha">
+                </div>
+
+                <div class="input-group">
+                    <img class="input-icon lock-icon" src="../img/imagens_login/padlock.png" alt="Ícone de Cadeado" required>
+                    <input type="cep" id="cep" name="cep" placeholder="Cep">
+                </div>
+
+                <div class="input-group">
+                    <img class="input-icon lock-icon" src="../img/imagens_login/padlock.png" alt="Ícone de Cadeado" required>
+                    <input type="cpf" id="cpf" name="cpf" placeholder="Cpf">
                 </div>
 
                 <div class="input-group">
@@ -139,16 +149,8 @@
                 </div>
 
 
-
-                <select name="perfil" id="perfil">
-                    <option class="option" value="0">Selecione o Tipo</option>
-                    <option class="option" value="Usuario">Usuario (Para Descarte)</option>
-                    <option class="option" value="Coletor">Coletor</option>
-                    <option class="option" value="Empresa">Empresa</option>
-                </select>
-
                 <?php //VALIDA SE O USUÁRIO JÁ NÃO ESTAVA CADASTRADO
-                if (isset($_GET['password']) && $_GET['username'] === 'erro') { ?>
+                if (isset($_GET['senha']) && $_GET['email'] === 'erro') { ?>
                     <div class="text-danger" style="text-align: center;"> E-Mail já cadastrado!</div>
                 <?php } ?>
 

@@ -27,7 +27,7 @@
                 </div>
                 <div class="input-group">
                     <img class="input-icon lock-icon" src="../img/imagens_login/padlock.png" alt="Ícone de Cadeado">
-                    <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                    <input type="senha" id="senha" name="senha" placeholder="Senha" required>
                 </div>
                 <button type="submit" class="login-button">Entrar</button>
             </form>
