@@ -1,21 +1,19 @@
 <?php
-// registra_empresa.php
 include('config.php'); // assume $conexao (mysqli) aqui
 
-// usa POST se existir, senão GET (mantive compatibilidade)
 $data = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST : $_GET;
-
 
 $nome       = $conexao->real_escape_string(trim($data['nome'] ?? ''));
 $email      = $conexao->real_escape_string(trim($data['email'] ?? ''));
 $senha_raw  = $data['senha'] ?? '';
 $cep        = $conexao->real_escape_string(trim($data['cep'] ?? ''));
+$local      = $conexao->real_escape_string(trim($data['local'] ?? '')); // <- novo
 $cnpj       = $conexao->real_escape_string(trim($data['cnpj'] ?? ''));
 $telefone   = $conexao->real_escape_string(trim($data['telefone'] ?? ''));
 $capacidade = $conexao->real_escape_string(trim($data['capacidade'] ?? 0));
 
 // valida campos obrigatórios
-if ($nome === '' || $email === '' || $senha_raw === '') {
+if ($nome === '' || $email === '' || $senha_raw === '' || $local === '') {
     header('location: cadastro.php?empresa=camposfaltando');
     exit();
 }
@@ -30,15 +28,13 @@ if ($res_check && $res_check->num_rows > 0) {
 
 $senha = md5($senha_raw);
 
-
-$sql = "INSERT INTO tb_empresas (nome, email, senha, cep, cnpj, telefone, capacidade)
-        VALUES('{$nome}', '{$email}', '{$senha}', '{$cep}', '{$cnpj}', '{$telefone}', '{$capacidade}')";
-
+// Inserindo incluindo o nome_local
+$sql = "INSERT INTO tb_empresas (nome, email, senha, cep, nome_local, cnpj, telefone, capacidade)
+        VALUES('{$nome}', '{$email}', '{$senha}', '{$cep}', '{$local}', '{$cnpj}', '{$telefone}', '{$capacidade}')";
 
 $res = $conexao->query($sql);
 
-
-if ($res == true) {
+if ($res) {
     header('location: login.php?empresa=sucesso');
     exit();
 } else {

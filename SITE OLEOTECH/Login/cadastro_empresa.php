@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- link para o css do cadastro.css -->
     <link rel="stylesheet" href="cadastro.css">
-
     <title>Criar - Cadastro da Empresa</title>
+
 </head>
 
 <body>
@@ -42,46 +42,48 @@
 
                 <p class="sign-in-text">Você precisa fornecer seus dados de acesso abaixo para entrar no sistema.</p>
             </div>
-            <form action="registra_empresa.php" method="POST">
+            <form class="tabela-input" action="registra_empresa.php" method="POST">
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/wpf_name.png" alt="Ícone de Usuário">
-                    <input type="text" id="nome" name="nome" placeholder="Nome da Empresa" required>
+                    <input type="text" id="nome" name="nome" placeholder="Nome da Empresa" required maxlength="100">
                 </div>
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/ic_baseline-email.png" alt="Ícone de Usuário">
-                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required maxlength="100">
                 </div>
 
                 <div class="input-group">
                     <img class="input-icon lock-icon" src="../img/imagens_login/material-symbols_lock.png" alt="Ícone de Cadeado">
-                    <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                    <input type="password" id="senha" name="senha" placeholder="Senha" required maxlength="30">
                 </div>
 
                 <!-- campos da empresa -->
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/map_postal-code.png" alt="CEP">
-                    <input type="text" id="cep" name="cep" placeholder="CEP">
+                    <input type="text" id="cep" name="cep" placeholder="CEP" pattern="\d{5}-?\d{3}" maxlength="9" title="Digite um CEP válido">
                 </div>
 
                 <div class="input-group">
-                    <img class="input-icon" src="" alt="">
-                    <input type="text" id="local" name="local" placeholder="Localização">
+                    <img class="input-icon" src="../img/imagens_login/ic_round-home.png" alt="Local">
+                    <input type="text" id="local" name="local" placeholder="Localização" readonly maxlength="150">
                 </div>
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/clarity_building-solid.png" alt="CNPJ">
-                    <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ">
+                    <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" maxlength="18" title="Digite um CNPJ válido">
+                    <!-- pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" -->
                 </div>
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/line-md_phone-filled.png" alt="Telefone">
-                    <input type="text" id="telefone" name="telefone" placeholder="Telefone">
+                    <input type="tel" id="telefone" name="telefone" placeholder="Telefone" maxlength="15" title="Digite um telefone válido">
+                    <!-- pattern="\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}" -->
                 </div>
-
+ 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/icone_oleo.png" alt="Telefone">
-                    <input type="text" id="capacidade" name="capacidade" placeholder="Capacidade de Oleo (ml)">
+                    <input type="number" id="capacidade" name="capacidade" placeholder="Capacidade de Oleo (ml)" min="1" max="1000000">
                 </div>
 
 
@@ -105,6 +107,40 @@
             <p class="copyright">© OLEOTECH</p>
         </div>
     </div>
+
+
+    <!-- Script para buscar CEP -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cepInput = document.getElementById('cep');
+            const localInput = document.getElementById('local');
+
+            cepInput.addEventListener('blur', function() {
+                const cep = this.value.replace(/\D/g, ''); // remove tudo que não é número
+                if (cep.length === 8) {
+                    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (!data.erro) {
+                                localInput.value = `${data.logradouro}, ${data.bairro}, ${data.localidade}/${data.uf}`;
+                            } else {
+                                alert('CEP não encontrado!');
+                                localInput.value = '';
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Erro ao buscar CEP:', error);
+                            alert('Erro ao buscar CEP');
+                        });
+                } else {
+                    if (cep.length > 0) {
+                        alert('CEP inválido!');
+                        localInput.value = '';
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 
