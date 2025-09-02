@@ -1,3 +1,52 @@
+<?php
+session_start();
+include('config.php');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $conexao->real_escape_string(trim($_POST['username'] ?? ''));
+    $password = $_POST['password'] ?? '';
+
+    if ($username === '' || $password === '') {
+        header('location: login.php?erro=camposvazios');
+        exit();
+    }
+
+    $senha_md5 = md5($password);
+
+    // Verifica clientes
+    $sql_cliente = "SELECT * FROM tb_clientes WHERE email = '{$username}' AND senha = '{$senha_md5}'";
+    $res_cliente = $conexao->query($sql_cliente);
+
+    if ($res_cliente && $res_cliente->num_rows > 0) {
+        $user = $res_cliente->fetch_assoc();
+        $_SESSION['usuario_id'] = $user['id_cliente'];
+        $_SESSION['usuario_nome'] = $user['nome'];
+        $_SESSION['tipo_usuario'] = 'cliente';
+        // redireciona para a pasta Clientes
+        header('location: ../Historico/Clientes/coletas_clientes.php');
+        exit();
+    }
+
+    // Verifica empresas
+    $sql_empresa = "SELECT * FROM tb_empresas WHERE email = '{$username}' AND senha = '{$senha_md5}'";
+    $res_empresa = $conexao->query($sql_empresa);
+
+    if ($res_empresa && $res_empresa->num_rows > 0) {
+        $user = $res_empresa->fetch_assoc();
+        $_SESSION['usuario_id'] = $user['id_empresa'];
+        $_SESSION['usuario_nome'] = $user['nome'];
+        $_SESSION['tipo_usuario'] = 'empresa';
+        // redireciona para a pasta Empresa
+        header('location: ../Historico/Empresa/coletas_empresa.php');
+        exit();
+    }
+
+    // Se não achou nenhum
+    header('location: login.php?erro=usuario_senha_incorretos');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -257,7 +306,6 @@
             </form>
             <div class="links-area">
                 <a href="alterar_senha.php">Esqueceu sua senha?</a><br>
-                <a href="../Login/cadastro.php">Criar uma conta</a>
             </div>
             <p class="copyright">© OLEOTECH</p>
         </div>
@@ -273,7 +321,6 @@
             </div>
         </div>
     </div>
-
-    
 </body>
 </html>
+

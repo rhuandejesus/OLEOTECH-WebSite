@@ -236,7 +236,7 @@
                 <button type="submit" class="login-button">Alterar Senha</button>
             </form>
             <div class="links-area">
-                <a href="login.html">Voltar ao login</a>
+                <a href="login.php">Voltar ao login</a>
             </div>
             <p class="copyright">© OLEOTECH</p>
         </div>
