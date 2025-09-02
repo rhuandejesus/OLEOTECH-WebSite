@@ -3,106 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Login.css">
-
+    <link rel="stylesheet" href="cadastro.css">
     <title>Criar - OLEOTECH</title>
-
-    <style>
-        .login-illustration {
-            width: 50%;
-            background: linear-gradient(135deg, #57caff, #fdf4b1);
-            /* Um fundo sutilmente degradê */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-            color: #333;
-            text-align: left;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom right, #1B63C5, #e5e6ad);
-            /* Variações do seu azul */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        /*botao*/
-
-        .botao-voltar {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 190px;
-            height: 56px;
-            border-radius: 16px;
-            background: #fff;
-            font-size: 18px;
-            font-weight: 600;
-            color: #000;
-            text-decoration: none;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .botao-voltar p {
-            position: relative;
-            z-index: 2;
-            margin-left: 8px;
-            transition: color 0.3s;
-        }
-
-        .botao-voltar .icon-area {
-            position: absolute;
-            left: 4px;
-            top: 4px;
-            width: 48px;
-            height: 48px;
-            background: #1B63C5;
-            /* verde estilo Tailwind */
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: width 0.5s ease;
-            z-index: 1;
-        }
-
-        .botao-voltar:hover .icon-area {
-            width: 182px;
-        }
-
-        .botao-voltar:hover p {
-            display: none;
-        }
-    </style>
 </head>
+
+<style>
+
+</style>
+
 
 <body>
     <div class="login-container">
 
+        <!-- ILUSTRAÇÃO -->
         <div class="login-illustration">
             <div class="illustration-content">
-                <h2>OLEOTECH</h2>
-                <p>Descarte consciente, impacto positivo.</p>
+                <h2 id="tituloLogo">OLEOTECH</h2>
+                <p id="subtituloLogo">Descarte consciente, impacto positivo.</p>
                 <div class="abstract-art">
                     <div class="circle circle-blue-light"></div>
-                    <div class="circle circle-yellow"></div>
-                    <div class="rectangle rectangle-blue-dark"></div>
+                    <div class="circle circle-blue"></div>
                 </div>
             </div>
         </div>
 
-
-
+        <!-- FORMULÁRIO -->
         <div class="login-form">
             <div class="logo-area">
-                <!-- <img class="login-logo" src="../img/LOGOTIPO_OLEO_-removebg-preview.png" alt="Logo OLEOTECH"> -->
                 <a href="../Main Page/index.html" class="botao-voltar">
                     <div class="icon-area">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="25px" width="25px">
@@ -114,38 +41,46 @@
                 </a>
 
                 <h2>Criar</h2>
-
                 <p class="sign-in-text">Você precisa fornecer seus dados de acesso abaixo para entrar no sistema.</p>
             </div>
-            <form action="registra_usuario.php" method="GET">
+
+            <form action="registra_usuario.php" method="POST">
                 <div class="input-group">
-                    <img class="input-icon" src="../img/imagens_login/profile.png" alt="Ícone de Usuário">
+                    <img class="input-icon" src="../img/imagens_login/wpf_name.png" alt="Ícone de Usuário">
                     <input type="text" id="nome" name="nome" placeholder="Nome de Usuário" required>
                 </div>
 
                 <div class="input-group">
-                    <img class="input-icon" src="../img/imagens_login/mail.png" alt="Ícone de Usuário">
-                    <input type="text" id="email" name="email" placeholder="Email" required>
+                    <img class="input-icon" src="../img/imagens_login/ic_baseline-email.png" alt="Ícone de Email">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
                 </div>
 
                 <div class="input-group">
-                    <img class="input-icon lock-icon" src="../img/imagens_login/padlock.png" alt="Ícone de Cadeado" required>
-                    <input type="password" id="senha" name="senha" placeholder="Senha">
+                    <img class="input-icon" src="../img/imagens_login/material-symbols_lock.png" alt="Ícone de Cadeado">
+                    <input type="password" id="senha" name="senha" placeholder="Senha" required>
                 </div>
 
                 <div class="input-group">
-                    <img class="input-icon lock-icon" src="../img/imagens_login/padlock.png" alt="Ícone de Cadeado" required>
-                    <input type="cep" id="cep" name="cep" placeholder="Cep">
+                    <img class="input-icon" src="../img/imagens_login/map_postal-code.png" alt="Ícone de Localização">
+                    <input type="text" id="cep" name="cep" placeholder="Cep" required>
                 </div>
 
                 <div class="input-group">
-                    <img class="input-icon lock-icon" src="../img/imagens_login/padlock.png" alt="Ícone de Cadeado" required>
-                    <input type="cpf" id="cpf" name="cpf" placeholder="Cpf">
+                    <img class="input-icon" src="../img/imagens_login/ic_round-home.png" alt="Local">
+                    <div class="local-wrapper" style="display: flex; gap: 5px; width: 100%;">
+                        <input type="text" id="local" name="local" placeholder="Localização" readonly maxlength="150" style="flex: 1;">
+                        <input type="text" id="complemento" name="complemento" placeholder="Nº" maxlength="5" style="width: 60px;">
+                    </div>
                 </div>
 
                 <div class="input-group">
-                    <img class="input-icon lock-icon" src="../img/imagens_login/Telefone.png" alt="Ícone de Telefone">
-                    <input type="text" id="telefone" name="telefone" placeholder="Telefone" required>
+                    <img class="input-icon" src="../img/imagens_login/icon_cpf.png" alt="Ícone de Documento">
+                    <input type="text" id="cpf" name="cpf" placeholder="Cpf" required>
+                </div>
+
+                <div class="input-group">
+                    <img class="input-icon" src="../img/imagens_login/line-md_phone-filled.png" alt="Ícone de Telefone">
+                    <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required>
                 </div>
 
 
@@ -174,11 +109,43 @@
                 <a href="Main Page/index.php" target="_self"><button type="submit" class="login-button">Cadastrar</button></a>
             </form>
             <div class="links-area">
-                <a href="../Login/Login.html">Já tem uma conta?</a>
+                <a href="../Login/login.php">Já tem uma conta?</a>
             </div>
             <p class="copyright">© OLEOTECH</p>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cepInput = document.getElementById('cep');
+            const localInput = document.getElementById('local');
+
+            cepInput.addEventListener('blur', function() {
+                const cep = this.value.replace(/\D/g, ''); // remove tudo que não é número
+                if (cep.length === 8) {
+                    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (!data.erro) {
+                                localInput.value = `${data.logradouro}, ${data.bairro}, ${data.localidade}/${data.uf}`;
+                            } else {
+                                alert('CEP não encontrado!');
+                                localInput.value = '';
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Erro ao buscar CEP:', error);
+                            alert('Erro ao buscar CEP');
+                        });
+                } else {
+                    if (cep.length > 0) {
+                        alert('CEP inválido!');
+                        localInput.value = '';
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 

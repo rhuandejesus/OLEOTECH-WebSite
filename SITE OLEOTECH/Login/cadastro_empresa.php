@@ -17,7 +17,7 @@
                 <p id="subtituloLogo">Descarte consciente, impacto positivo.</p>
                 <div class="abstract-art">
                     <div class="circle circle-blue-light"></div>
-                    <div class="circle circle-yellow"></div>
+                    <div class="circle circle-blue"></div>
                     <div class="rectangle rectangle-blue-dark"></div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
             <?php } ?>
             </form>
             <div class="links-area">
-                <a href="../Login/Login.html">Já tem uma conta?</a>
+                <a href="../Login/login.php">Já tem uma conta?</a>
             </div>
             <p class="copyright">© OLEOTECH</p>
         </div>
