@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -487,29 +486,18 @@
 
         <div class="login-container">
             <div class="form-container">
-                <p class="title">Bem-vindo de volta</p>
-                <form action="../Login/login.php" method="post" class="form login-form">
-                    <input type="email" name="email" class="input" placeholder="Digite seu email ou CNPJ" required>
-                    <input type="password" name="password" class="input" placeholder="Digite sua senha" required>
-
-                    <p class="page-link">
-                        <span class="page-link-label">Esqueceu sua senha?</span>
-                    </p>
-
-                    <button type="submit" class="form-btn">Entrar</button>
+                <p class="title">Bem-vindo
+                    Cadastre-se</p>
+                <form method="post" class="form login-form">
+                    <button type="submit" class="form-btn" id="btnEntrar">Entrar</button>
                 </form>
 
-                <p class="sign-up-label">
-                    Não tem uma conta?
-                    <span class="sign-up-link" id="toggleCadastro">Cadastre-se</span>
-                </p>
-
                 <!-- Menu de cadastro (inicialmente escondido) -->
-                <div class="cadastro-opcoes" id="cadastroOpcoes">
+                <div class="cadastro-opcoes" id="cadastroOpcoes" style="display: none;">
                     <a href="../Login/cadastro.php" class="btn-cadastrar-user">Cadastrar Usuário</a>
-                    <a href="../Login/cadastro_empresa.php" class="btn-cadastrar-empresa">Cadastrar
-                        Empresa</a>
+                    <a href="../Login/cadastro_empresa.php" class="btn-cadastrar-empresa">Cadastrar Empresa</a>
                 </div>
+
 
                 <div class="buttons-container">
                     <div class="apple-login-button">
@@ -544,6 +532,25 @@
 
             </div>
         </div>
+
+        <script>
+            // Pega os elementos
+            const btnEntrar = document.getElementById('btnEntrar');
+            const cadastroOpcoes = document.getElementById('cadastroOpcoes');
+        
+            // Ao clicar no botão Entrar
+            btnEntrar.addEventListener('click', function(e) {
+                e.preventDefault(); // previne envio do form
+                // Alterna a visibilidade do menu de cadastro
+                if (cadastroOpcoes.style.display === 'none' || cadastroOpcoes.style.display === '') {
+                    cadastroOpcoes.style.display = 'block';
+                } else {
+                    cadastroOpcoes.style.display = 'none';
+                }
+            });
+        </script>
+        
+
     </section>
 
 

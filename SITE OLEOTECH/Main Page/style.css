@@ -1022,9 +1022,9 @@ a {
 }
 
 .cadastro-opcoes a {
-    padding: 10px 20px;
+    padding: 2px 50px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     text-decoration: none;
     transition: all 0.3s ease;

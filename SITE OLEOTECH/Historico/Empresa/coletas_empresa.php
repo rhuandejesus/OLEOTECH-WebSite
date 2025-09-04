@@ -67,7 +67,7 @@ $res = $conexao->query($sql);
             background-color: #f2f2f2;
         }
 
-        .voltar {
+        .botao {
             display: inline-block;
             margin-top: 20px;
             padding: 8px 15px;
@@ -114,7 +114,8 @@ $res = $conexao->query($sql);
         </tbody>
     </table>
 
-    <a href="../../Main Page/index.html" class="voltar">Sair</a>
+    <a href="../../Main Page/index.html" class="botao">Sair</a>
+    <a href="../Empresa/Coletor/cadastro_coletor.php" class="botao">Cadastrar Coletor</a>
 
 </body>
 
