@@ -1,44 +1,40 @@
 <?php
-include('config.php'); // assume $conexao (mysqli) aqui
+include('../../../Login/config.php'); // aqui o $conn já existe
 
 $data = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST : $_GET;
 
-$nome       = $conexao->real_escape_string(trim($data['nome'] ?? ''));
-$email      = $conexao->real_escape_string(trim($data['email'] ?? ''));
-$senha_raw  = $data['senha'] ?? '';
-$cep        = $conexao->real_escape_string(trim($data['cep'] ?? ''));
-$local      = $conexao->real_escape_string(trim($data['local'] ?? ''));
-$cnpj       = $conexao->real_escape_string(trim($data['cnpj'] ?? ''));
-$telefone   = $conexao->real_escape_string(trim($data['telefone'] ?? ''));
-$capacidade = $conexao->real_escape_string(trim($data['capacidade'] ?? 0));
+$nome      = $conn->real_escape_string(trim($data['nome'] ?? ''));
+$email     = $conn->real_escape_string(trim($data['email'] ?? ''));
+$senha_raw = $data['senha'] ?? '';
+$idEmpresa = (int)($data['empresa_id'] ?? 0);
 
 // valida campos obrigatórios
-if ($nome === '' || $email === '' || $senha_raw === '' || $local === '') {
-    header('location: cadastro.php?empresa=camposfaltando');
+if ($nome === '' || $email === '' || $senha_raw === '' || $idEmpresa === 0) {
+    header('location: cadastro_coletor.php?coletor=camposfaltando');
     exit();
 }
 
-// verifica se o e-mail já existe em tb_empresas
-$sql_check = "SELECT id_empresa FROM tb_empresas WHERE email = '{$email}';";
-$res_check = $conexao->query($sql_check);
+// verifica se o e-mail já existe
+$sql_check = "SELECT id_coletor FROM tb_coletores WHERE email = '{$email}';";
+$res_check = $conn->query($sql_check);
 if ($res_check && $res_check->num_rows > 0) {
-    header('location: cadastro.php?email=erro[empresaexiste]');
+    header('location: cadastro_coletor.php?email=erro[coletorexiste]');
     exit();
 }
 
 $senha = md5($senha_raw);
 
-// Inserindo incluindo o nome_local
-$sql = "INSERT INTO tb_empresas (nome, email, senha, cep, nome_local, cnpj, telefone, capacidade)
-        VALUES('{$nome}', '{$email}', '{$senha}', '{$cep}', '{$local}', '{$cnpj}', '{$telefone}', '{$capacidade}')";
+// inserindo coletor
+$sql = "INSERT INTO tb_coletores (nome, email, senha, idEmpresa)
+        VALUES ('{$nome}', '{$email}', '{$senha}', '{$idEmpresa}')";
 
-$res = $conexao->query($sql);
+$res = $conn->query($sql);
 
 if ($res) {
-    header('location: login.php?empresa=sucesso');
+    header('location: historico_empresa.php?coletor=sucesso');
     exit();
 } else {
-    header('location: cadastro.php?empresa=falha');
+    header('location: cadastro_coletor.php?coletor=falha');
     exit();
 }
 ?>

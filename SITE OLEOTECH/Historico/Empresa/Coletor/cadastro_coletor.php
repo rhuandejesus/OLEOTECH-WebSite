@@ -24,7 +24,7 @@
 
         <!-- Lado do formulário -->
         <div class="tabela-input">
-            <form action="coletor_config.php" method="POST">
+            <form action="registra_coletor.php" method="POST">
 
                 <div class="input-group">
                     <input type="text" name="nome" placeholder="Nome completo" required>
