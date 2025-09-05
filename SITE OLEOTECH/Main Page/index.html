@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>OLEOTECH</title>
+    <link rel="icon" type="image/png" href="../img/gota (1).png">
 </head>
 
 
@@ -489,8 +490,11 @@
                 <p class="title">Bem-vindo
                     Cadastre-se</p>
                 <form method="post" class="form login-form">
-                    <button type="submit" class="form-btn" id="btnEntrar">Entrar</button>
+                    <button type="submit" class="form-btn" id="btnCadastrar"
+                        formaction="cadastrar.php">Cadastrar</button>
+                    <button type="submit" class="form-btn" id="btnEntrar" formaction="../Login/login.php">Entrar</button>
                 </form>
+
 
                 <!-- Menu de cadastro (inicialmente escondido) -->
                 <div class="cadastro-opcoes" id="cadastroOpcoes" style="display: none;">
@@ -535,11 +539,11 @@
 
         <script>
             // Pega os elementos
-            const btnEntrar = document.getElementById('btnEntrar');
+            const btnCadastrar = document.getElementById('btnCadastrar');
             const cadastroOpcoes = document.getElementById('cadastroOpcoes');
-        
+
             // Ao clicar no botão Entrar
-            btnEntrar.addEventListener('click', function(e) {
+            btnCadastrar.addEventListener('click', function (e) {
                 e.preventDefault(); // previne envio do form
                 // Alterna a visibilidade do menu de cadastro
                 if (cadastroOpcoes.style.display === 'none' || cadastroOpcoes.style.display === '') {
@@ -549,7 +553,7 @@
                 }
             });
         </script>
-        
+
 
     </section>
 
