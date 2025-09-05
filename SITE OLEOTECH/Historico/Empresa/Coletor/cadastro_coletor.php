@@ -1,14 +1,18 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_id']) || ($_SESSION['tipo_usuario'] ?? '') !== 'empresa') {
+    header('location: ../../Login/login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coletor</title>
     <link rel="stylesheet" href="coletor.css">
-    <script src="coletor_config.php" defer></script>
 </head>
-
 <body>
     <div class="login-container">
 
@@ -25,7 +29,6 @@
         <!-- Lado do formulário -->
         <div class="tabela-input">
             <form action="registra_coletor.php" method="POST">
-
                 <div class="input-group">
                     <input type="text" name="nome" placeholder="Nome completo" required>
                 </div>
@@ -46,11 +49,8 @@
                     <input type="password" name="senha" placeholder="Senha" required>
                 </div>
 
-                <input type="hidden" name="empresa_id" value="<?php echo $_SESSION['empresa_id']; ?>">
-
                 <button type="submit" class="login-button">Cadastrar</button>
             </form>
-
         </div>
 
     </div>

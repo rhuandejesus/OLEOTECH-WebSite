@@ -66,7 +66,7 @@
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/ic_round-home.png" alt="Local">
-                    <input type="text" id="local" name="local" placeholder="Localização" readonly maxlength="150">
+                    <input type="text" id="local" name="nome_local" placeholder="Localização" readonly maxlength="150">
                 </div>
 
                 <div class="input-group">

@@ -1,17 +1,24 @@
 <?php
-include('../../../Login/config.php'); // assume $conexao já existe
+session_start();
+include(__DIR__ . '/../../../Login/config.php'); 
+if (!isset($_SESSION['usuario_id']) || ($_SESSION['tipo_usuario'] ?? '') !== 'empresa') {
+    header('location: ../../Login/login.php');
+    exit();
+}
+
+$idEmpresa = (int) $_SESSION['usuario_id'];
 
 $data = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST : $_GET;
 
 $nome      = $conexao->real_escape_string(trim($data['nome'] ?? ''));
 $cpf       = $conexao->real_escape_string(trim($data['cpf'] ?? ''));
 $email     = $conexao->real_escape_string(trim($data['email'] ?? ''));
-$senha_raw = $data['senha'] ?? '';
 $telefone  = $conexao->real_escape_string(trim($data['telefone'] ?? ''));
-$idEmpresa = (int)($data['empresa_id'] ?? 0);
+$senha_raw = $data['senha'] ?? '';
+
 
 // valida campos obrigatórios
-if ($nome === '' || $cpf === '' || $email === '' || $senha_raw === '' || $telefone === '' || $idEmpresa === 0) {
+if ($nome === '' || $cpf === '' || $email === '' || $senha_raw === '' || $telefone === '') {
     header('location: cadastro_coletor.php?erro=camposfaltando');
     exit();
 }
@@ -27,15 +34,14 @@ if ($res_check && $res_check->num_rows > 0) {
 
 $senha = md5($senha_raw);
 
-// insere coletor
+
 $sql = "INSERT INTO tb_coletores (nome, cpf, email, senha, telefone, idEmpresa)
         VALUES ('{$nome}', '{$cpf}', '{$email}', '{$senha}', '{$telefone}', {$idEmpresa})";
 
 if ($conexao->query($sql)) {
-    header('location: historico_empresa.php?coletor=sucesso');
+    header('location: ../coletas_empresa.php?coletor=sucesso');
     exit();
 } else {
     header('location: cadastro_coletor.php?erro=falha');
     exit();
 }
-?>
