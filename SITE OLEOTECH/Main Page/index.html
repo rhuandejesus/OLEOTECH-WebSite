@@ -17,12 +17,13 @@
         </div>
         <nav class="nav">
             <ul class="nav-links">
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Curiosidade</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#coleta">Pontos de Coleta</a></li>
+                <li><a href="#curiosidade">Curiosidade</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
-        </nav>
+          </nav>
         <a class="login-button" href="#local-entrar">Login</a>
 
     </header>
@@ -33,7 +34,7 @@
     </div>
 
 
-    <section class="slider" data-interval="4500"> <!-- 4500ms = 4.5s por slide -->
+    <section id="home" class="slider" data-interval="4500"> <!-- 4500ms = 4.5s por slide -->
         <div class="slides">
             <input type="radio" name="radio-btn" id="radio1">
             <input type="radio" name="radio-btn" id="radio2">
@@ -78,7 +79,7 @@
 
 
     <div class="flex-container">
-        <section class="section-sobre">
+        <section id="sobre" class="section-sobre">
             <div class="conteudo-sobre">
                 <div class="sobre-texto">
                     <h2>Sobre nós</h2>
@@ -165,7 +166,7 @@
     <div class="linha-azul"></div>
 
     <!--Localização do mapa-->
-    <section class="section-local">
+    <section id="coleta" class="section-local">
 
         <div class="text-local">
             <h1 class="title-local">Unidades de armazenamento Oleo Tech</h1>
@@ -193,7 +194,6 @@
 
                 <div class="mapa-container">
                     <img class="mapa" src="../img/brasil.png" alt="mapa">
-                    <div class="local"></div>
                 </div>
             </div>
         </div>
@@ -205,7 +205,7 @@
 
 
 
-    <section class="section-container">
+    <section id="curiosidade" class="section-container">
 
 
         <div class="card-container">
@@ -558,7 +558,7 @@
 
     <!--footer-->
     <footer>
-        <div class="footer-banner">
+        <div id="contato" class="footer-banner">
             <div class="banner-content">
                 <p>Adquira também nosso aplicativo na loja </p>
                 <div class="botao-playstore">

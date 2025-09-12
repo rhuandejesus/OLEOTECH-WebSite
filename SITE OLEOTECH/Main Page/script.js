@@ -97,6 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+
+
 // ===== Menu Cadastro =====
 const btnCadastrar = document.getElementById('btnCadastrar');
 const cadastroOpcoes = document.getElementById('cadastroOpcoes');
@@ -104,4 +107,41 @@ const cadastroOpcoes = document.getElementById('cadastroOpcoes');
 btnCadastrar.addEventListener('click', function (e) {
   e.preventDefault();
   cadastroOpcoes.style.display = cadastroOpcoes.style.display === 'flex' ? 'none' : 'flex';
+});
+
+
+
+
+
+//== atualiza --header-height como no exemplo anterior ======
+function updateHeaderHeight() {
+  const header = document.querySelector('.header');
+  document.documentElement.style.setProperty('--header-height', (header ? header.offsetHeight : 0) + 'px');
+}
+window.addEventListener('load', updateHeaderHeight);
+window.addEventListener('resize', updateHeaderHeight);
+
+// intercepta cliques nos links do nav e no login-button
+document.querySelectorAll('.nav-links a, .login-button, .logo-container').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    // permite links externos normais
+    if (!href || !href.startsWith('#')) return;
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    e.preventDefault();
+    const header = document.querySelector('.header');
+    const headerHeight = header ? header.offsetHeight : 0;
+    const gap = 8; // pequeno espaçamento extra
+    const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - gap;
+
+    window.scrollTo({ top, behavior: 'smooth' });
+
+    // se tiver menu mobile aberto, fecha aqui (exemplo)
+    const menu = document.querySelector('.nav'); // ajuste se seu mobile menu tiver outra classe
+    if (menu && menu.classList.contains('open')) {
+      menu.classList.remove('open');
+    }
+  });
 });

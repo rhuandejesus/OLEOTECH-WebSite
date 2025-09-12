@@ -1283,19 +1283,7 @@ a {
         gap: 60%;
     }
 
-    .section-local .mapa-container .local {
-        position: absolute;
-        top: 454%;
-        left: 83%;
-        transform: translate(-50%, -50%) rotate(45deg);
-    }
 
-
-    /*desabilitar o local*/
-
-    .local {
-        display: none;
-    }
 
     @media (max-width: 1453px) {
         .icon-container {
@@ -1322,8 +1310,8 @@ a {
     }
 
     .nav-links {
-        flex-wrap: wrap;
-        gap: 15px;
+        flex-wrap: balance;
+        gap: 0px;
         justify-content: flex-start;
     }
 
@@ -1569,7 +1557,7 @@ a {
     }
 
     .nav-links {
-        gap: 8px;
+        gap: 0px;
     }
 
     .nav-links a {
@@ -1676,7 +1664,7 @@ a {
     }
 
     .nav-links {
-        gap: 8px;
+        gap: 0px;
     }
 
     .nav-links a {
