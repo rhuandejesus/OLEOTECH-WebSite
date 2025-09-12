@@ -16,14 +16,16 @@ if ($tipo_usuario !== 'empresa') {
     exit();
 }
 
-// Busca histórico de coletas da empresa
-$sql = "SELECT c.id_coleta, c.data, c.quantidade, cl.nome AS cliente_nome
+// Busca histórico de coletas da empresa, incluindo o nome do coletor
+$sql = "SELECT c.id_coleta, c.data, c.quantidade, cl.nome AS cliente_nome, col.nome AS coletor_nome
         FROM tb_coletas c
         JOIN tb_clientes cl ON c.idCliente = cl.id_cliente
+        JOIN tb_coletores col ON c.idColetor = col.id_coletor
         WHERE c.idEmpresa = {$usuario_id}
         ORDER BY c.data DESC";
 
 $res = $conexao->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -94,6 +96,7 @@ $res = $conexao->query($sql);
                 <th>Data</th>
                 <th>Quantidade</th>
                 <th>Cliente</th>
+                <th>Coletor</th> <!-- Nova coluna -->
             </tr>
         </thead>
         <tbody>
@@ -104,14 +107,16 @@ $res = $conexao->query($sql);
                         <td><?= date('d/m/Y', strtotime($row['data'])) ?></td>
                         <td><?= $row['quantidade'] ?></td>
                         <td><?= htmlspecialchars($row['cliente_nome']) ?></td>
+                        <td><?= htmlspecialchars($row['coletor_nome']) ?></td> <!-- Mostra o nome do coletor -->
                     </tr>
                 <?php endwhile; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="4">Nenhuma coleta encontrada.</td>
+                    <td colspan="5">Nenhuma coleta encontrada.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
+
     </table>
 
     <a href="../../Main Page/index.html" class="botao">Sair</a>

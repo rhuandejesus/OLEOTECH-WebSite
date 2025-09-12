@@ -486,16 +486,13 @@
 
         <div class="login-container">
             <div class="form-container">
-                <p class="title">Bem-vindo
-                    Cadastre-se</p>
-                <form method="post" class="form login-form">
-                    <button type="submit" class="form-btn" id="btnCadastrar"
-                        formaction="cadastrar.php">Cadastrar</button>
-                    <button type="submit" class="form-btn" id="btnEntrar" formaction="../Login/login.php">Entrar</button>
+                <p class="title">Bem-vindo! Cadastre-se ou Entre</p>
+
+                <form class="form login-form">
+                    <button type="button" class="form-btn" id="btnCadastrar">Cadastrar</button>
+                    <button type="submit" class="form-btn" formaction="../Login/login.php">Entrar</button>
                 </form>
 
-
-                <!-- Menu de cadastro (inicialmente escondido) -->
                 <div class="cadastro-opcoes" id="cadastroOpcoes" style="display: none;">
                     <a href="../Login/cadastro.php" class="btn-cadastrar-user">Cadastrar Usuário</a>
                     <a href="../Login/cadastro_empresa.php" class="btn-cadastrar-empresa">Cadastrar Empresa</a>
@@ -536,7 +533,7 @@
             </div>
         </div>
 
-        <script>
+        <!-- <script>
             // Pega os elementos
             const btnCadastrar = document.getElementById('btnCadastrar');
             const cadastroOpcoes = document.getElementById('cadastroOpcoes');
@@ -551,7 +548,7 @@
                     cadastroOpcoes.style.display = 'none';
                 }
             });
-        </script>
+        </script> -->
 
 
     </section>

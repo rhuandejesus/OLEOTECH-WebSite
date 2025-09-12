@@ -75,7 +75,7 @@
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/icon_cpf.png" alt="Ícone de Documento">
-                    <input type="text" id="cpf" name="cpf" placeholder="Cpf" required>
+                    <input type="text" id="cpf" name="cpf" placeholder="CPF (apenas números)" maxlength="11" required>
                 </div>
 
                 <div class="input-group">
