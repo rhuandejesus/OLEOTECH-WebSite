@@ -16,6 +16,10 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.iconSite {
+    width: 12px;
+    height: 12px;
+}
 .mudouTamanho {
     width: 100%;
     height: 100%;
@@ -42,46 +46,7 @@ body {
     height: auto;
 }
 
-/*Loading*/
-/* #loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    color: #fff;
-}
 
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #ff0000;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 20px;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-#loading-screen p {
-    font-family: Arial, sans-serif;
-    font-size: 1.2rem;
-} */
 
 
 .logo {
@@ -469,7 +434,6 @@ iframe {
 /*linha azul*/
 .linha-azul {
     background-color: #1B63C5;
-    border-radius: 20px;
     width: 100%;
     margin: auto;
     padding: 4px;
@@ -1054,14 +1018,185 @@ a {
 
 /* Animação */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
+
+/*Slider de empresas*/
+/* ===============================
+   Section: Empresas de Óleo
+   - Colar no style.css
+   =============================== */
+
+/* Seção de empresas */
+.section-empresas {
+    padding: 40px 20px;
+    background-color: #f5f5f5;
+}
+
+.section-empresas .section-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-empresas .section-header h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.section-empresas .section-header p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Slider */
+/* ---- slider (cards com logos SVG) ---- */
+
+.section-empresas {
+    margin-top: 20%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #000A38;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #000A38;
+}
+
+/* carousel de empresas */
+.empresas-carousel {
+    width: 100%;
+    height: var(--height);
+    overflow: hidden;
+    margin-top: 24px;
+    mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+}
+
+.empresas-list {
+    display: flex;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+
+.empresa-item {
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRun 10s linear infinite;
+    transition: filter 0.5s, transform 0.18s;
+    animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1) - 10s) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes autoRun {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: calc(var(--width) * -1);
+    }
+}
+
+.empresas-carousel:hover .empresa-item {
+    animation-play-state: paused !important;
+    filter: grayscale(1);
+}
+
+.empresa-item:hover {
+    filter: grayscale(0);
+    transform: scale(1.03);
+}
+
+/* card */
+.empresa-card {
+    width: calc(var(--width) - 18px);
+    height: calc(var(--height) - 18px);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* logo area inside card */
+.empresa-logo {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empresa-svg {
+    width: 64px;
+    height: 64px;
+}
+
+/* texts */
+.empresa-card h4 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.empresa-card p {
+    margin: 0;
+    font-size: 12px;
+    opacity: 0.95;
+}
+
+/* responsiveness: shrink cards on small screens */
+@media (max-width: 700px) {
+    .empresas-carousel {
+        --width: 160px;
+        --height: 160px;
+    }
+
+    .empresa-svg {
+        width: 52px;
+        height: 52px;
+    }
+
+    .empresa-card h4 {
+        font-size: 14px;
+    }
+
+    .empresa-card p {
+        font-size: 11px;
+    }
+}
+
 
 
 /* Footer Banner */
 .footer-banner {
-    margin-top: 40%;
+    margin-top: 20%;
     background-color: #EFC91D;
     display: flex;
     justify-content: space-between;

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alterar Senha - OLEOTECH</title>
+    <link class="iconSite" rel="icon" type="image/png" href="../../img/gota__1_-removebg-preview.png">
     <style>
         body {
             margin: 0;
@@ -179,21 +180,21 @@
             <p class="sign-in-text">Digite seu e-mail e a nova senha para redefinir seu acesso ao sistema.</p>
             <form action="alterar_senha_process.php" method="POST">
                 <div class="input-group">
-                    <img class="input-icon" src="../img/imagens_login/ic_baseline-email.png" alt="Ícone de Email">
+                    <img class="input-icon" src="../../img/imagens_login/ic_baseline-email.png" alt="Ícone de Email">
                     <input type="email" name="email" placeholder="Seu email" required>
                 </div>
                 <div class="input-group">
-                    <img class="input-icon" src="../img/imagens_login/material-symbols_lock.png" alt="Ícone de Cadeado">
+                    <img class="input-icon" src="../../img/imagens_login/material-symbols_lock.png" alt="Ícone de Cadeado">
                     <input type="password" name="nova_senha" placeholder="Nova senha" required>
                 </div>
                 <div class="input-group">
-                    <img class="input-icon" src="../img/imagens_login/material-symbols_lock.png" alt="Ícone de Cadeado">
+                    <img class="input-icon" src="../../img/imagens_login/material-symbols_lock.png" alt="Ícone de Cadeado">
                     <input type="password" name="confirmar_senha" placeholder="Confirmar nova senha" required>
                 </div>
                 <button type="submit" class="login-button">Alterar Senha</button>
             </form>
             <div class="links-area">
-                <a href="login.php">Voltar ao login</a>
+                <a href="../login.php">Voltar ao login</a>
             </div>
             <p class="copyright">© OLEOTECH</p>
         </div>

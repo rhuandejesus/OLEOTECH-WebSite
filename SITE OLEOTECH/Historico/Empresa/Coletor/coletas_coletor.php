@@ -126,6 +126,7 @@ if (isset($_POST['excluir_id_coleta'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coletas - Coletor</title>
     <link rel="stylesheet" href="../../../Login/Login.css">
+    <link class="iconSite" rel="icon" type="image/png" href="../../../img/gota__1_-removebg-preview.png">
     <style>
         /* Mantive seu estilo original e adicionei só o necessário para o autocomplete */
         body {

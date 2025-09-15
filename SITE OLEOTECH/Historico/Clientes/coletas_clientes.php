@@ -35,6 +35,7 @@ $res = $conexao->query($sql);
     <meta charset="UTF-8">
     <title>Histórico de Coletas - OLEOTECH</title>
     <link rel="stylesheet" href="../../Login/Login.css">
+    <link class="iconSite" rel="icon" type="image/png" href="../../img/gota__1_-removebg-preview.png">
     <style>
         body {
             font-family: 'Poppins', sans-serif;

@@ -67,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Login.css">
     <title>Login - OLEOTECH</title>
+    <link class="iconSite" rel="icon" type="image/png" href="../img/gota__1_-removebg-preview.png">
 </head>
 
 <style>
@@ -318,7 +319,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" class="login-button">Entrar</button>
             </form>
             <div class="links-area">
-                <a href="alterar_senha.php">Esqueceu sua senha?</a><br>
+                <a href="../Login/Senha/alterar_senha.php">Esqueceu sua senha?</a><br>
             </div>
             <p class="copyright">© OLEOTECH</p>
         </div>

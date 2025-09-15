@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>OLEOTECH</title>
+    <link class="iconSite" rel="icon" type="image/png" href="../img/gota__1_-removebg-preview.png">
 </head>
 
 
-<body onresize="mudouTamanho">
+<body onresize="mudouTamanho()">
     <header class="header">
         <div class="logo-container" id="oleo" onclick="clickOleo()">
-            <img class="logo" src="../img/Logo_Kaio.png" alt="logo do oleo"></img>
+            <img class="logo" src="../img/Logo_Kaio.png" alt="logo do oleo">
         </div>
         <nav class="nav">
             <ul class="nav-links">
@@ -23,15 +24,10 @@
                 <li><a href="#curiosidade">Curiosidade</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
-          </nav>
+        </nav>
         <a class="login-button" href="#local-entrar">Login</a>
 
     </header>
-
-    <div id="loading-screen" style="display:none;">
-        <div class="spinner"></div>
-        <p>Carregando...</p>
-    </div>
 
 
     <section id="home" class="slider" data-interval="4500"> <!-- 4500ms = 4.5s por slide -->
@@ -51,12 +47,11 @@
             </div>
 
             <div class="slide">
-                <img src="https://img.freepik.com/premium-photo/fluid-art-liquid-gold-generative-ai_666746-2872.jpg"
-                    class="oleo" alt="Imagem3">
+                <img src="https://cs-assets.bayer.com/is/image/bayer/Imagem1-1" class="oleo" alt="Imagem3">
             </div>
 
             <div class="slide">
-                <img src="https://www.estadao.com.br/resizer/v2/LSRJRV2TOVH5RBBH3NL6WGPDWY.jpeg?quality=80&auth=b71dd4f5d7bc3626cf418e897b9fb289032197b6c6f1f449a3e497c276b0b0d2&width=1075&height=527&smart=true"
+                <img src="https://www.estadao.com.br/resizer/v2/RML7CWHQAZFQPC4MIFE3ROLFEY.jpg?quality=80&auth=2722d92c6b3314add9d18af19462eabe9f3ddb56b5ff6b3d45509212fe5f5655&width=1075&height=527&smart=true"
                     class="oleo" alt="Imagem4">
             </div>
 
@@ -533,25 +528,177 @@
             </div>
         </div>
 
-        <!-- <script>
-            // Pega os elementos
-            const btnCadastrar = document.getElementById('btnCadastrar');
-            const cadastroOpcoes = document.getElementById('cadastroOpcoes');
-
-            // Ao clicar no botão Entrar
-            btnCadastrar.addEventListener('click', function (e) {
-                e.preventDefault(); // previne envio do form
-                // Alterna a visibilidade do menu de cadastro
-                if (cadastroOpcoes.style.display === 'none' || cadastroOpcoes.style.display === '') {
-                    cadastroOpcoes.style.display = 'block';
-                } else {
-                    cadastroOpcoes.style.display = 'none';
-                }
-            });
-        </script> -->
-
-
     </section>
+
+    <!-- Slider de empresas -->
+    <!-- ========================= -->
+    <section id="empresas-oleo" class="section-empresas">
+        <!-- empresas de coleta de óleo -->
+        <h1 class="title-empresas">Empresas de coleta de óleo</h1>
+        <h2 class="subtitle-empresas">Conheça as melhores opções para reciclagem</h2>
+
+        <div class="empresas-carousel" style="--width: 200px; --height: 200px; --quantity: 9;"
+            aria-label="Carrossel de empresas de óleo">
+            <div class="empresas-list">
+
+                <!-- 1 -->
+                <div class="empresa-item" style="--position: 1">
+                    <div class="empresa-card" style="background: linear-gradient(to right, #ff7e5f, #feb47b)">
+                        <div class="empresa-logo">
+                            <svg viewBox="0 0 100 100" class="empresa-svg">
+                                <a href="https://biopetro.com.br" target="_blank">
+                                    <rect width="100" height="100" rx="14" fill="#ff7e5f" />
+                                    <text x="50" y="58" font-size="42" text-anchor="middle" fill="#fff"
+                                        font-family="Poppins,Arial">R</text>
+                                </a>
+                            </svg>
+                        </div>
+                        <h4>Recóleo</h4>
+                        <p>Coleta e reciclagem de óleo vegetal</p>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="empresa-item" style="--position: 2">
+                    <div class="empresa-card" style="background: linear-gradient(to right, #6a11cb, #2575fc)">
+                        <div class="empresa-logo">
+                            <svg viewBox="0 0 100 100" class="empresa-svg">
+                                <a href="https://www.petroecol.com.br" target="_blank">
+                                    <rect width="100" height="100" rx="14" fill="#6a11cb" />
+                                    <text x="50" y="58" font-size="38" text-anchor="middle" fill="#fff"
+                                        font-family="Poppins,Arial">P</text>
+                                </a>
+                            </svg>
+                        </div>
+                        <h4>Petroecol</h4>
+                        <p>Soluções em coleta e resíduos</p>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="empresa-item" style="--position: 3">
+                    <div class="empresa-card" style="background: linear-gradient(to right, #00c6ff, #0072ff)">
+                        <div class="empresa-logo">
+                            <svg viewBox="0 0 100 100" class="empresa-svg">
+                                <a href="https://biotank.com.br" target="_blank">
+                                    <rect width="100" height="100" rx="14" fill="#00c6ff" />
+                                    <text x="50" y="58" font-size="34" text-anchor="middle" fill="#fff"
+                                        font-family="Poppins,Arial">B</text>
+                                </a>
+                            </svg>
+                        </div>
+                        <h4>Biotank</h4>
+                        <p>Coleta e reciclagem especializada</p>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="empresa-item" style="--position: 4">
+                    <div class="empresa-card" style="background: linear-gradient(to right, #ff512f, #dd2476)">
+                        <div class="empresa-logo">
+                            <svg viewBox="0 0 100 100" class="empresa-svg">
+                                <a href="https://ecoil.com.br" target="_blank">
+                                    <rect width="100" height="100" rx="14" fill="#ff512f" />
+                                    <text x="50" y="58" font-size="34" text-anchor="middle" fill="#fff"
+                                        font-family="Poppins,Arial">E</text>
+                                </a>
+                            </svg>
+                        </div>
+                        <h4>Ecoil</h4>
+                        <p>Reciclagem e conversão em biodiesel</p>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="empresa-item" style="--position: 5">
+                    <div class="empresa-card" style="background: linear-gradient(to right, #ffb6c1, #ff69b4)">
+                        <div class="empresa-logo">
+                            <svg viewBox="0 0 100 100" class="empresa-svg">
+                                <a href="https://oleoverde.com.br" target="_blank">
+                                    <rect width="100" height="100" rx="14" fill="#ff69b4" />
+                                    <text x="50" y="58" font-size="30" text-anchor="middle" fill="#fff"
+                                        font-family="Poppins,Arial">ÓV</text>
+                                </a>
+                            </svg>
+                        </div>
+                        <h4>Óleo Verde</h4>
+                        <p>Pontos de entrega e ecopontos</p>
+                    </div>
+                </div>
+
+                <!-- 6 -->
+                <div class="empresa-item" style="--position: 6">
+                    <div class="empresa-card" style="background: linear-gradient(to right, #ff9a8b, #ffc3a0)">
+                        <div class="empresa-logo">
+                            <svg viewBox="0 0 100 100" class="empresa-svg">
+                                <a href="https://greenoil.com.br" target="_blank">
+                                    <rect width="100" height="100" rx="14" fill="#ff9a8b" />
+                                    <text x="50" y="58" font-size="34" text-anchor="middle" fill="#fff"
+                                        font-family="Poppins,Arial">G</text>
+                                </a>
+                            </svg>
+                        </div>
+                        <h4>GreenOil</h4>
+                        <p>Transforma óleo usado em energia</p>
+                    </div>
+                </div>
+
+                <!-- 7 -->
+                <div class="empresa-item" style="--position: 7">
+                    <div class="empresa-card" style="background: linear-gradient(to right, #a1c4fd, #c2e9fb)">
+                        <div class="empresa-logo">
+                            <svg viewBox="0 0 100 100" class="empresa-svg">
+                                <a href="https://darpro.com.br" target="_blank">
+                                    <rect width="100" height="100" rx="14" fill="#a1c4fd" />
+                                    <text x="50" y="58" font-size="34" text-anchor="middle" fill="#fff"
+                                        font-family="Poppins,Arial">DAR</text>
+                                </a>
+                            </svg>
+                        </div>
+                        <h4>DAR PRO</h4>
+                        <p>Coleta e soluções logísticas</p>
+                    </div>
+                </div>
+
+                <!-- 8 -->
+                <div class="empresa-item" style="--position: 8">
+                    <div class="empresa-card" style="background: linear-gradient(to right, #fbc2eb, #a18cd1)">
+                        <div class="empresa-logo">
+                            <svg viewBox="0 0 100 100" class="empresa-svg">
+                                <a href="https://biopetro.com.br" target="_blank">
+                                    <rect width="100" height="100" rx="14" fill="#fbc2eb" />
+                                    <text x="50" y="58" font-size="30" text-anchor="middle" fill="#fff"
+                                        font-family="Poppins,Arial">BP</text>
+                                </a>
+                            </svg>
+                        </div>
+                        <h4>Biopetro</h4>
+                        <p>Soluções ambientais e de reuso</p>
+                    </div>
+                </div>
+
+                <!-- 9 -->
+                <div class="empresa-item" style="--position: 9">
+                    <div class="empresa-card" style="background: linear-gradient(to right, #84fab0, #8fd3f4)">
+                        <div class="empresa-logo">
+                            <svg viewBox="0 0 100 100" class="empresa-svg">
+                                <a href="https://nutrihorto.com.br" target="_blank">
+                                    <rect width="100" height="100" rx="14" fill="#84fab0" />
+                                    <text x="50" y="58" font-size="34" text-anchor="middle" fill="#fff"
+                                        font-family="Poppins,Arial">N</text>
+                                </a>
+                            </svg>
+                        </div>
+                        <h4>Nutrihorto</h4>
+                        <p>Reciclagem de óleos vegetais</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
 
 
 

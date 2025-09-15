@@ -145,3 +145,7 @@ document.querySelectorAll('.nav-links a, .login-button, .logo-container').forEac
     }
   });
 });
+
+
+
+

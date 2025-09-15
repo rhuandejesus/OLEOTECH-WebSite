@@ -35,6 +35,7 @@ $res = $conexao->query($sql);
     <meta charset="UTF-8">
     <title>Histórico de Coletas - Empresa OLEOTECH</title>
     <link rel="stylesheet" href="../../Login/Login.css">
+    <link class="iconSite" rel="icon" type="image/png" href="../../img/gota__1_-removebg-preview.png">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -89,6 +90,9 @@ $res = $conexao->query($sql);
 
     <h2>Histórico de Coletas da Empresa</h2>
 
+    <a href="../../Main Page/index.html" class="botao">Sair</a>
+    <a href="../Empresa/Coletor/cadastro_coletor.php" class="botao">Cadastrar Coletor</a>
+    <a href="../Empresa/Coletor/coletores_empresa.php" class="botao">Coletores</a>
     <table>
         <thead>
             <tr>
@@ -118,9 +122,6 @@ $res = $conexao->query($sql);
         </tbody>
 
     </table>
-
-    <a href="../../Main Page/index.html" class="botao">Sair</a>
-    <a href="../Empresa/Coletor/cadastro_coletor.php" class="botao">Cadastrar Coletor</a>
 
 </body>
 

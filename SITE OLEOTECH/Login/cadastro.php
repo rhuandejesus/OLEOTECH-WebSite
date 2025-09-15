@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cadastro.css">
     <title>Criar - OLEOTECH</title>
+    <link class="iconSite" rel="icon" type="image/png" href="../img/gota__1_-removebg-preview.png">
 </head>
 
 <style>
@@ -44,7 +45,7 @@
                 <p class="sign-in-text">Você precisa fornecer seus dados de acesso abaixo para entrar no sistema.</p>
             </div>
 
-            <form action="registra_usuario.php" method="POST">
+            <form class="tabela-input" action="registra_usuario.php" method="POST">
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/wpf_name.png" alt="Ícone de Usuário">
                     <input type="text" id="nome" name="nome" placeholder="Nome de Usuário" required>
