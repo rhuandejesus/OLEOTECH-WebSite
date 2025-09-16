@@ -21,6 +21,7 @@ body {
     width: 12px;
     height: 12px;
 }
+
 .mudouTamanho {
     width: 100%;
     height: 100%;
@@ -148,7 +149,7 @@ body {
     width: 400%;
     height: 650px;
     display: flex;
-    transition: transform 0.8s ease-in-out;
+    transition: transform 0.4s ease-in-out;
     will-change: transform;
 }
 
@@ -1180,7 +1181,8 @@ h2 {
 
 
 
-/* Footer Banner */
+
+/* ========= Footer Banner ============*/
 .footer-banner {
     margin-top: 20%;
     background-color: #EFC91D;

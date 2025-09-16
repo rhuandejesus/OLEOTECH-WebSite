@@ -10,7 +10,7 @@
   const total = radios.length;
   if (!total) return;
 
-  const interval = parseInt(slider.getAttribute('data-interval'), 10) || 4000;
+  const interval = parseInt(slider.getAttribute('data-interval'), 10) || 2500;
 
   let current = Array.from(radios).findIndex(r => r.checked);
   if (current < 0) current = 0;
@@ -123,7 +123,7 @@ window.addEventListener('resize', updateHeaderHeight);
 
 // intercepta cliques nos links do nav e no login-button
 document.querySelectorAll('.nav-links a, .login-button, .logo-container').forEach(link => {
-  link.addEventListener('click', function(e) {
+  link.addEventListener('click', function (e) {
     const href = this.getAttribute('href');
     // permite links externos normais
     if (!href || !href.startsWith('#')) return;
@@ -145,7 +145,5 @@ document.querySelectorAll('.nav-links a, .login-button, .logo-container').forEac
     }
   });
 });
-
-
 
 

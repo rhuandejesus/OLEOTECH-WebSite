@@ -311,7 +311,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     <?php endif; ?>
 
     <div class="top-actions">
-        <a href="../../Main Page/index.html" class="botao">Sair</a>
+        <a href="../../../Main Page/index.html" class="botao">Sair</a>
         <a href="?export=csv<?php echo $q ? '&q=' . urlencode($q) : ''; ?>&ordenar=<?php echo htmlspecialchars($ordenar); ?>" class="botao">Exportar CSV</a>
 
         <form class="search-form" method="get" action="" style="display:inline-block;">
