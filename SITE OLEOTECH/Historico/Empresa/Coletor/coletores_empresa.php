@@ -21,7 +21,15 @@ if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
+// ------------------------------
+// ORDENAR
+// ------------------------------
+$ordenar = $_GET['ordenar'] ?? 'id'; // padrão por ID
+$order_by = ($ordenar === 'nome') ? "nome ASC" : "id_coletor ASC";
+
+// ------------------------------
 // Tratamento de exclusão (POST)
+// ------------------------------
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete') {
     $msg = ['success' => null, 'error' => null];
 
@@ -48,16 +56,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     exit();
 }
 
+// ------------------------------
 // Export CSV
+// ------------------------------
 if (isset($_GET['export']) && $_GET['export'] === 'csv') {
     $q = trim($_GET['q'] ?? '');
     $search_param = "%$q%";
 
-    $sql = "SELECT id_coletor, nome, email, telefone, data_cadastro, status FROM tb_coletores WHERE idEmpresa = ?";
+    $sql = "SELECT id_coletor, nome, email, telefone, data_cadastro, status 
+            FROM tb_coletores 
+            WHERE idEmpresa = ?";
     if ($q !== '') {
         $sql .= " AND (nome LIKE ? OR email LIKE ? OR telefone LIKE ?)";
     }
-    $sql .= " ORDER BY nome ASC";
+    $sql .= " ORDER BY $order_by";
 
     $stmt = $conexao->prepare($sql);
     if ($q !== '') {
@@ -87,7 +99,9 @@ if (isset($_GET['export']) && $_GET['export'] === 'csv') {
     exit();
 }
 
+// ------------------------------
 // Busca / paginação
+// ------------------------------
 $q = trim($_GET['q'] ?? '');
 $page = max(1, intval($_GET['page'] ?? 1));
 $limit = 10;
@@ -114,11 +128,13 @@ $stmt->close();
 $pages = max(1, ceil($total / $limit));
 
 // Seleciona coletores
-$select_sql = "SELECT id_coletor, nome, email, telefone, data_cadastro, status FROM tb_coletores WHERE idEmpresa = ?";
+$select_sql = "SELECT id_coletor, nome, email, telefone, data_cadastro, status 
+               FROM tb_coletores 
+               WHERE idEmpresa = ?";
 if ($q !== '') {
     $select_sql .= " AND (nome LIKE ? OR email LIKE ? OR telefone LIKE ?)";
 }
-$select_sql .= " ORDER BY nome ASC LIMIT $limit OFFSET $offset";
+$select_sql .= " ORDER BY $order_by LIMIT $limit OFFSET $offset";
 
 $stmt = $conexao->prepare($select_sql);
 if ($q !== '') {
@@ -133,8 +149,9 @@ $res = $stmt->get_result();
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
 
-
+// ------------------------------
 // Tratamento de edição
+// ------------------------------
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'edit') {
     $id = intval($_POST['id_coletor'] ?? 0);
     $nome = trim($_POST['nome'] ?? '');
@@ -155,7 +172,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     header('Location: ' . $_SERVER['PHP_SELF'] . (isset($_GET['q']) ? '?q=' . urlencode($_GET['q']) : ''));
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -205,6 +221,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             border-collapse: collapse;
             margin-top: 10px;
             background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         th,
@@ -254,6 +271,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             width: 250px;
         }
 
+        .actions {
+            white-space: nowrap;
+        }
+
         #edit-form-<?php echo $row['id_coletor']; ?>input {
             margin: 2px;
             padding: 4px;
@@ -291,12 +312,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
     <div class="top-actions">
         <a href="../../Main Page/index.html" class="botao">Sair</a>
-        <a href="?export=csv<?php echo $q ? '&q=' . urlencode($q) : ''; ?>" class="botao">Exportar CSV</a>
+        <a href="?export=csv<?php echo $q ? '&q=' . urlencode($q) : ''; ?>&ordenar=<?php echo htmlspecialchars($ordenar); ?>" class="botao">Exportar CSV</a>
 
         <form class="search-form" method="get" action="" style="display:inline-block;">
             <input class="buscarNome" type="text" name="q" placeholder="Pesquisar nome, email ou telefone" value="<?php echo htmlspecialchars($q); ?>">
+            <input type="hidden" name="ordenar" value="<?php echo htmlspecialchars($ordenar); ?>">
             <button type="submit" class="botao">Buscar</button>
         </form>
+
+        <!-- Botões de ordenação -->
+        <div style="margin-top:10px;">
+            <a href="?ordenar=id<?php echo $q ? '&q=' . urlencode($q) : ''; ?>" class="botao">Ver por ordem de chegada (ID)</a>
+            <a href="?ordenar=nome<?php echo $q ? '&q=' . urlencode($q) : ''; ?>" class="botao">Ver por ordem alfabética</a>
+        </div>
     </div>
 
     <table>
@@ -353,16 +381,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
     <div class="paginator">
         <?php if ($page > 1): ?>
-            <a class="botao" href="?page=<?php echo $page - 1; ?><?php echo $q ? '&q=' . urlencode($q) : ''; ?>">« Anterior</a>
+            <a class="botao" href="?page=<?php echo $page - 1; ?><?php echo $q ? '&q=' . urlencode($q) : ''; ?>&ordenar=<?php echo htmlspecialchars($ordenar); ?>">« Anterior</a>
         <?php endif; ?>
 
         Página <?php echo $page; ?> de <?php echo $pages; ?>
 
         <?php if ($page < $pages): ?>
-            <a class="botao" href="?page=<?php echo $page + 1; ?><?php echo $q ? '&q=' . urlencode($q) : ''; ?>">Próxima »</a>
+            <a class="botao" href="?page=<?php echo $page + 1; ?><?php echo $q ? '&q=' . urlencode($q) : ''; ?>&ordenar=<?php echo htmlspecialchars($ordenar); ?>">Próxima »</a>
         <?php endif; ?>
     </div>
 
 </body>
+
 
 </html>

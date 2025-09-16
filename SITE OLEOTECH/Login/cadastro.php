@@ -48,22 +48,22 @@
             <form class="tabela-input" action="registra_usuario.php" method="POST">
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/wpf_name.png" alt="Ícone de Usuário">
-                    <input type="text" id="nome" name="nome" placeholder="Nome de Usuário" required>
+                    <input type="text" id="nome" name="nome" placeholder="Nome de Usuário" required maxlength="100">
                 </div>
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/ic_baseline-email.png" alt="Ícone de Email">
-                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required maxlength="100">
                 </div>
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/material-symbols_lock.png" alt="Ícone de Cadeado">
-                    <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                    <input type="password" id="senha" name="senha" placeholder="Senha" required maxlength="30">
                 </div>
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/map_postal-code.png" alt="Ícone de Localização">
-                    <input type="text" id="cep" name="cep" placeholder="Cep" required>
+                    <input type="text" id="cep" name="cep" placeholder="Cep" required maxlength="9" pattern="\d{5}-?\d{3}" title="Digite um CEP válido">
                 </div>
 
                 <div class="input-group">
@@ -81,7 +81,7 @@
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/line-md_phone-filled.png" alt="Ícone de Telefone">
-                    <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required>
+                    <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required maxlength="15" pattern="\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}" title="Digite um telefone válido">
                 </div>
 
 

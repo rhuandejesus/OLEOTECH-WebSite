@@ -33,7 +33,7 @@ $sql = "INSERT INTO tb_empresas
 
 $res = $conexao->query($sql);
 
-if ($conexao->query($sql)) {
+if ($res) {
     header('location: ../Login/login.php?mensagem=sucesso');
     exit();
 } else {

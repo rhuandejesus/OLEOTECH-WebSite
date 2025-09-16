@@ -38,15 +38,15 @@ if (!isset($_SESSION['usuario_id']) || ($_SESSION['tipo_usuario'] ?? '') !== 'em
                 </div>
 
                 <div class="input-group">
-                    <input type="email" name="email" placeholder="E-mail" required>
+                    <input type="email" name="email" placeholder="E-mail" required maxlength="100">
                 </div>
 
                 <div class="input-group">
-                    <input type="text" name="telefone" placeholder="Telefone" required>
+                    <input type="text" name="telefone" placeholder="Telefone" required maxlength="15" pattern="\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}" title="Digite um telefone válido">
                 </div>
 
                 <div class="input-group">
-                    <input type="password" name="senha" placeholder="Senha" required>
+                    <input type="password" name="senha" placeholder="Senha" required minlength="6" maxlength="50">
                 </div>
 
                 <button type="submit" class="login-button">Cadastrar</button>
