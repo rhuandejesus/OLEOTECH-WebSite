@@ -7,12 +7,14 @@ if (!isset($_SESSION['usuario_id']) || ($_SESSION['tipo_usuario'] ?? '') !== 'em
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coletor</title>
     <link rel="stylesheet" href="coletor.css">
 </head>
+
 <body>
     <div class="login-container">
 
@@ -29,25 +31,34 @@ if (!isset($_SESSION['usuario_id']) || ($_SESSION['tipo_usuario'] ?? '') !== 'em
         <!-- Lado do formulário -->
         <div class="tabela-input">
             <form action="registra_coletor.php" method="POST">
-                <div class="input-group">
-                    <input type="text" name="nome" placeholder="Nome completo" required>
+                <!-- Container para inputs lado a lado -->
+                <div class="input-row">
+                    <div class="input-group">
+                        <input type="text" name="nome" placeholder="Nome completo" required maxlength="100" pattern="^[A-Za-zÀ-ú\s]+$" title="O nome deve conter apenas letras e espaços">
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" name="cpf" placeholder="CPF" required maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite um CPF válido no formato 000.000.000-00">
+                    </div>
                 </div>
 
-                <div class="input-group">
-                    <input type="text" name="cpf" placeholder="CPF (apenas números)" maxlength="11" required>
+                <div class="input-row">
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="E-mail" required maxlength="100" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Digite um email válido">
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" name="telefone" placeholder="Telefone" required maxlength="15" pattern="^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$" title="Digite um telefone válido">
+                    </div>
                 </div>
 
-                <div class="input-group">
-                    <input type="email" name="email" placeholder="E-mail" required maxlength="100">
+                <div class="input-row">
+                    <div class="input-group">
+                        <input type="password" name="senha" placeholder="Senha" required minlength="6" maxlength="50" pattern=".{6,}" title="A senha deve ter pelo menos 6 caracteres">
+                    </div>
                 </div>
 
-                <div class="input-group">
-                    <input type="text" name="telefone" placeholder="Telefone" required maxlength="15" pattern="\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}" title="Digite um telefone válido">
-                </div>
 
-                <div class="input-group">
-                    <input type="password" name="senha" placeholder="Senha" required minlength="6" maxlength="50">
-                </div>
 
                 <button type="submit" class="login-button">Cadastrar</button>
             </form>

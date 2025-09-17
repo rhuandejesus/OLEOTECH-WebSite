@@ -55,7 +55,7 @@
 
                 <div class="input-group">
                     <img class="input-icon lock-icon" src="../img/imagens_login/material-symbols_lock.png" alt="Ícone de Cadeado">
-                    <input type="password" id="senha" name="senha" placeholder="Senha" required maxlength="30">
+                    <input type="password" id="senha" name="senha" placeholder="Senha" required maxlength="30" pattern=".{6,}" title="A senha deve ter pelo menos 6 caracteres">
                 </div>
 
                 <!-- campos da empresa -->
@@ -71,7 +71,7 @@
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/clarity_building-solid.png" alt="CNPJ">
-                    <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" maxlength="18" title="Digite um CNPJ válido">
+                    <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" maxlength="18" pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" title="Digite um CNPJ válido">
                     <!-- pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" -->
                 </div>
 
@@ -80,7 +80,7 @@
                     <input type="tel" id="telefone" name="telefone" placeholder="Telefone" maxlength="15" title="Digite um telefone válido">
                     <!-- pattern="\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}" -->
                 </div>
- 
+
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/icone_oleo.png" alt="Telefone">
                     <input type="number" id="capacidade" name="capacidade" placeholder="Capacidade de Oleo (ml)" min="1" max="1000000">

@@ -48,7 +48,7 @@
             <form class="tabela-input" action="registra_usuario.php" method="POST">
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/wpf_name.png" alt="Ícone de Usuário">
-                    <input type="text" id="nome" name="nome" placeholder="Nome de Usuário" required maxlength="100">
+                    <input type="text" id="nome" name="nome" placeholder="Nome de Usuário" required maxlength="100" pattern="^[A-Za-zÀ-ú\s]+$" title="O nome deve conter apenas letras e espaços">
                 </div>
 
                 <div class="input-group">
@@ -58,7 +58,7 @@
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/material-symbols_lock.png" alt="Ícone de Cadeado">
-                    <input type="password" id="senha" name="senha" placeholder="Senha" required maxlength="30">
+                    <input type="password" id="senha" name="senha" placeholder="Senha" required maxlength="30" pattern=".{6,}" title="A senha deve ter pelo menos 6 caracteres">
                 </div>
 
                 <div class="input-group">
@@ -76,7 +76,7 @@
 
                 <div class="input-group">
                     <img class="input-icon" src="../img/imagens_login/icon_cpf.png" alt="Ícone de Documento">
-                    <input type="text" id="cpf" name="cpf" placeholder="CPF (apenas números)" maxlength="11" required>
+                    <input type="text" name="cpf" placeholder="CPF" required maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite um CPF válido no formato 000.000.000-00">
                 </div>
 
                 <div class="input-group">
